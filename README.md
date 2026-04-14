@@ -5,7 +5,9 @@ Custom MUI UI Component Library with Liquid Glass Design.
 ## Installation
 
 ```bash
-npm install @awaymess/ui @mui/material @emotion/react @emotion/styled @mui/icons-material
+npm install @awaymess/ui
+# or
+pnpm add @awaymess/ui
 ```
 
 ## Usage

@@ -1,8 +1,5 @@
 import { createTheme, ThemeOptions } from '@mui/material/styles'
 import { createElement } from 'react'
-import CheckBoxOutlineBlankRounded from '@mui/icons-material/CheckBoxOutlineBlankRounded'
-import CheckBoxRounded from '@mui/icons-material/CheckBoxRounded'
-import IndeterminateCheckBoxRounded from '@mui/icons-material/IndeterminateCheckBoxRounded'
 
 declare module '@mui/material/styles' {
   interface Palette {
@@ -209,11 +206,54 @@ const themeOptions: ThemeOptions = {
           },
         },
         contained: {
-          background: '#0A84FF',
-          boxShadow: '0 2px 8px rgba(10, 132, 255, 0.3)',
+          backgroundColor: '#0A84FF',
+          backgroundImage: 'none',
+          boxShadow: '0 4px 12px rgba(10, 132, 255, 0.24)',
           '&:hover': {
-            background: '#2994FF',
-            boxShadow: '0 4px 10px rgba(10, 132, 255, 0.34)',
+            backgroundColor: '#007AFF',
+            backgroundImage: 'none',
+            boxShadow: '0 6px 16px rgba(10, 132, 255, 0.32)',
+          },
+        },
+        containedPrimary: {
+          backgroundColor: '#0A84FF',
+          color: '#FFFFFF',
+          '&:hover': { backgroundColor: '#007AFF' },
+        },
+        containedSecondary: {
+          backgroundColor: '#5856D6',
+          color: '#FFFFFF',
+          boxShadow: '0 4px 12px rgba(88, 86, 214, 0.24)',
+          '&:hover': {
+            backgroundColor: '#4B49C7',
+            boxShadow: '0 6px 16px rgba(88, 86, 214, 0.32)',
+          },
+        },
+        containedSuccess: {
+          backgroundColor: '#34C759',
+          color: '#FFFFFF',
+          boxShadow: '0 4px 12px rgba(52, 199, 89, 0.24)',
+          '&:hover': {
+            backgroundColor: '#2FB34F',
+            boxShadow: '0 6px 16px rgba(52, 199, 89, 0.32)',
+          },
+        },
+        containedError: {
+          backgroundColor: '#FF3B30',
+          color: '#FFFFFF',
+          boxShadow: '0 4px 12px rgba(255, 59, 48, 0.24)',
+          '&:hover': {
+            backgroundColor: '#E9342A',
+            boxShadow: '0 6px 16px rgba(255, 59, 48, 0.32)',
+          },
+        },
+        containedWarning: {
+          backgroundColor: '#FF9500',
+          color: '#1C1C1E',
+          boxShadow: '0 4px 12px rgba(255, 149, 0, 0.24)',
+          '&:hover': {
+            backgroundColor: '#E68600',
+            boxShadow: '0 6px 16px rgba(255, 149, 0, 0.32)',
           },
         },
         outlined: {
@@ -372,6 +412,31 @@ const themeOptions: ThemeOptions = {
       },
     },
 
+    MuiFilledInput: {
+      defaultProps: { disableUnderline: true },
+      styleOverrides: {
+        root: {
+          borderRadius: 18,
+          overflow: 'hidden',
+          backgroundColor: 'rgba(229, 231, 235, 0.82)',
+          transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
+          '&:hover': {
+            backgroundColor: 'rgba(221, 224, 229, 0.95)',
+          },
+          '&.Mui-focused': {
+            backgroundColor: 'rgba(255, 255, 255, 0.82)',
+            boxShadow: '0 0 0 3px rgba(10, 132, 255, 0.16)',
+          },
+          '&.Mui-disabled': {
+            backgroundColor: 'rgba(229, 231, 235, 0.5)',
+          },
+          '&:before, &:after': {
+            display: 'none',
+          },
+        },
+      },
+    },
+
     // ── Select ───────────────────────────────────────────────────────────────
     MuiSelect: {
       styleOverrides: {
@@ -465,19 +530,64 @@ const themeOptions: ThemeOptions = {
     MuiCheckbox: {
       defaultProps: {
         disableRipple: true,
-        icon: createElement(CheckBoxOutlineBlankRounded, { fontSize: 'small' }),
-        checkedIcon: createElement(CheckBoxRounded, { fontSize: 'small' }),
-        indeterminateIcon: createElement(IndeterminateCheckBoxRounded, {
-          fontSize: 'small',
-        }),
+        icon: createElement('span', { className: 'AwaymessCheckboxIcon' }),
+        checkedIcon: createElement(
+          'span',
+          { className: 'AwaymessCheckboxIcon AwaymessCheckboxIcon-checked' },
+          createElement('span', { className: 'AwaymessCheckboxTick' })
+        ),
+        indeterminateIcon: createElement(
+          'span',
+          { className: 'AwaymessCheckboxIcon AwaymessCheckboxIcon-checked' },
+          createElement('span', { className: 'AwaymessCheckboxDash' })
+        ),
       },
       styleOverrides: {
         root: {
-          padding: 6,
-          borderRadius: 10,
+          padding: 7,
+          borderRadius: 12,
           transition: 'background 0.15s ease',
+          '& .AwaymessCheckboxIcon': {
+            width: 30,
+            height: 30,
+            borderRadius: 9,
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: 'rgba(120, 120, 128, 0.34)',
+            boxShadow:
+              'inset 0 0 0 2px rgba(60, 60, 67, 0.24), inset 0 1px 0 rgba(255,255,255,0.35)',
+            transition:
+              'background-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease',
+          },
+          '& .AwaymessCheckboxIcon-checked': {
+            backgroundColor: 'currentColor',
+            boxShadow:
+              '0 3px 8px rgba(0, 122, 255, 0.22), inset 0 1px 0 rgba(255,255,255,0.28)',
+          },
+          '& .AwaymessCheckboxTick': {
+            width: 15,
+            height: 9,
+            borderLeft: '3.5px solid #FFFFFF',
+            borderBottom: '3.5px solid #FFFFFF',
+            borderRadius: 1,
+            transform: 'translateY(-1px) rotate(-45deg)',
+          },
+          '& .AwaymessCheckboxDash': {
+            width: 15,
+            height: 3.5,
+            borderRadius: 999,
+            backgroundColor: '#FFFFFF',
+          },
           '&:hover': {
             backgroundColor: 'rgba(0, 122, 255, 0.08)',
+          },
+          '&:active .AwaymessCheckboxIcon': {
+            transform: 'scale(0.96)',
+          },
+          '&.Mui-disabled .AwaymessCheckboxIcon': {
+            backgroundColor: 'rgba(120, 120, 128, 0.18)',
+            boxShadow: 'inset 0 0 0 2px rgba(120, 120, 128, 0.22)',
           },
         },
       },
@@ -491,9 +601,15 @@ const themeOptions: ThemeOptions = {
           background: 'rgba(120, 120, 128, 0.16)',
           borderRadius: 14,
           padding: '4px',
+          overflow: 'visible',
+        },
+        scroller: {
+          overflow: 'visible !important',
         },
         indicator: {
-          height: '100%',
+          top: 4,
+          bottom: 4,
+          height: 'auto',
           borderRadius: 10,
           background: glass.light.surfaceStrong,
           backdropFilter: 'blur(16px)',
@@ -855,6 +971,37 @@ export const darkTheme = createTheme({
       },
     },
 
+    MuiFilledInput: {
+      defaultProps: { disableUnderline: true },
+      styleOverrides: {
+        root: {
+          borderRadius: 18,
+          overflow: 'hidden',
+          backgroundColor: 'rgba(255,255,255,0.08)',
+          transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
+          '&:hover': {
+            backgroundColor: 'rgba(255,255,255,0.11)',
+          },
+          '&.Mui-focused': {
+            backgroundColor: 'rgba(255,255,255,0.13)',
+            boxShadow: '0 0 0 3px rgba(10, 132, 255, 0.22)',
+          },
+          '&.Mui-disabled': {
+            backgroundColor: 'rgba(255,255,255,0.05)',
+          },
+          '&:before, &:after': {
+            display: 'none',
+          },
+        },
+        input: {
+          color: '#F2F2F7',
+          '&::placeholder': {
+            color: 'rgba(235,235,245,0.4)',
+          },
+        },
+      },
+    },
+
     MuiMenu: {
       styleOverrides: {
         paper: {
@@ -957,11 +1104,54 @@ export const darkTheme = createTheme({
           },
         },
         contained: {
-          background: '#0A84FF',
-          boxShadow: '0 2px 10px rgba(10, 132, 255, 0.32)',
+          backgroundColor: '#0A84FF',
+          backgroundImage: 'none',
+          boxShadow: '0 4px 14px rgba(10, 132, 255, 0.36)',
           '&:hover': {
-            background: '#2994FF',
-            boxShadow: '0 4px 12px rgba(10, 132, 255, 0.38)',
+            backgroundColor: '#2994FF',
+            backgroundImage: 'none',
+            boxShadow: '0 6px 18px rgba(10, 132, 255, 0.44)',
+          },
+        },
+        containedPrimary: {
+          backgroundColor: '#0A84FF',
+          color: '#FFFFFF',
+          '&:hover': { backgroundColor: '#2994FF' },
+        },
+        containedSecondary: {
+          backgroundColor: '#5856D6',
+          color: '#FFFFFF',
+          boxShadow: '0 4px 14px rgba(88, 86, 214, 0.36)',
+          '&:hover': {
+            backgroundColor: '#6866E8',
+            boxShadow: '0 6px 18px rgba(88, 86, 214, 0.44)',
+          },
+        },
+        containedSuccess: {
+          backgroundColor: '#34C759',
+          color: '#FFFFFF',
+          boxShadow: '0 4px 14px rgba(52, 199, 89, 0.34)',
+          '&:hover': {
+            backgroundColor: '#42D967',
+            boxShadow: '0 6px 18px rgba(52, 199, 89, 0.42)',
+          },
+        },
+        containedError: {
+          backgroundColor: '#FF3B30',
+          color: '#FFFFFF',
+          boxShadow: '0 4px 14px rgba(255, 59, 48, 0.34)',
+          '&:hover': {
+            backgroundColor: '#FF5148',
+            boxShadow: '0 6px 18px rgba(255, 59, 48, 0.42)',
+          },
+        },
+        containedWarning: {
+          backgroundColor: '#FF9500',
+          color: '#1C1C1E',
+          boxShadow: '0 4px 14px rgba(255, 149, 0, 0.34)',
+          '&:hover': {
+            backgroundColor: '#FFA51F',
+            boxShadow: '0 6px 18px rgba(255, 149, 0, 0.42)',
           },
         },
         outlined: {
@@ -992,9 +1182,15 @@ export const darkTheme = createTheme({
           background: 'rgba(255, 255, 255, 0.14)',
           borderRadius: 14,
           padding: '4px',
+          overflow: 'visible',
+        },
+        scroller: {
+          overflow: 'visible !important',
         },
         indicator: {
-          height: '100%',
+          top: 4,
+          bottom: 4,
+          height: 'auto',
           borderRadius: 10,
           background: glass.dark.surfaceStrong,
           backdropFilter: 'blur(16px)',

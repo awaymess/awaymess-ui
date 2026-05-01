@@ -20,6 +20,17 @@ declare module '@mui/material/styles' {
   }
 }
 
+declare module '@mui/material/Button' {
+  interface ButtonPropsColorOverrides {
+    blue: true
+    purple: true
+    red: true
+    orange: true
+    green: true
+    gray: true
+  }
+}
+
 // ─── Liquid Glass Design Tokens ──────────────────────────────────────────────
 
 const glass = {
@@ -214,46 +225,55 @@ const themeOptions: ThemeOptions = {
             backgroundImage: 'none',
             boxShadow: '0 6px 16px rgba(10, 132, 255, 0.32)',
           },
-        },
-        containedPrimary: {
-          backgroundColor: '#0A84FF',
-          color: '#FFFFFF',
-          '&:hover': { backgroundColor: '#007AFF' },
-        },
-        containedSecondary: {
-          backgroundColor: '#5856D6',
-          color: '#FFFFFF',
-          boxShadow: '0 4px 12px rgba(88, 86, 214, 0.24)',
-          '&:hover': {
-            backgroundColor: '#4B49C7',
-            boxShadow: '0 6px 16px rgba(88, 86, 214, 0.32)',
+          '&.MuiButton-containedPrimary, &.MuiButton-colorPrimary, &.MuiButton-containedBlue, &.MuiButton-colorBlue': {
+            backgroundColor: '#0A84FF',
+            color: '#FFFFFF',
+            '&:hover': { backgroundColor: '#007AFF' },
           },
-        },
-        containedSuccess: {
-          backgroundColor: '#34C759',
-          color: '#FFFFFF',
-          boxShadow: '0 4px 12px rgba(52, 199, 89, 0.24)',
-          '&:hover': {
-            backgroundColor: '#2FB34F',
-            boxShadow: '0 6px 16px rgba(52, 199, 89, 0.32)',
+          '&.MuiButton-containedSecondary, &.MuiButton-colorSecondary, &.MuiButton-containedPurple, &.MuiButton-colorPurple': {
+            backgroundColor: '#5856D6',
+            color: '#FFFFFF',
+            boxShadow: '0 4px 12px rgba(88, 86, 214, 0.24)',
+            '&:hover': {
+              backgroundColor: '#4B49C7',
+              boxShadow: '0 6px 16px rgba(88, 86, 214, 0.32)',
+            },
           },
-        },
-        containedError: {
-          backgroundColor: '#FF3B30',
-          color: '#FFFFFF',
-          boxShadow: '0 4px 12px rgba(255, 59, 48, 0.24)',
-          '&:hover': {
-            backgroundColor: '#E9342A',
-            boxShadow: '0 6px 16px rgba(255, 59, 48, 0.32)',
+          '&.MuiButton-containedSuccess, &.MuiButton-colorSuccess, &.MuiButton-containedGreen, &.MuiButton-colorGreen': {
+            backgroundColor: '#34C759',
+            color: '#FFFFFF',
+            boxShadow: '0 4px 12px rgba(52, 199, 89, 0.24)',
+            '&:hover': {
+              backgroundColor: '#2FB34F',
+              boxShadow: '0 6px 16px rgba(52, 199, 89, 0.32)',
+            },
           },
-        },
-        containedWarning: {
-          backgroundColor: '#FF9500',
-          color: '#1C1C1E',
-          boxShadow: '0 4px 12px rgba(255, 149, 0, 0.24)',
-          '&:hover': {
-            backgroundColor: '#E68600',
-            boxShadow: '0 6px 16px rgba(255, 149, 0, 0.32)',
+          '&.MuiButton-containedError, &.MuiButton-colorError, &.MuiButton-containedRed, &.MuiButton-colorRed': {
+            backgroundColor: '#FF3B30',
+            color: '#FFFFFF',
+            boxShadow: '0 4px 12px rgba(255, 59, 48, 0.24)',
+            '&:hover': {
+              backgroundColor: '#E9342A',
+              boxShadow: '0 6px 16px rgba(255, 59, 48, 0.32)',
+            },
+          },
+          '&.MuiButton-containedWarning, &.MuiButton-colorWarning, &.MuiButton-containedOrange, &.MuiButton-colorOrange': {
+            backgroundColor: '#FF9500',
+            color: '#1C1C1E',
+            boxShadow: '0 4px 12px rgba(255, 149, 0, 0.24)',
+            '&:hover': {
+              backgroundColor: '#E68600',
+              boxShadow: '0 6px 16px rgba(255, 149, 0, 0.32)',
+            },
+          },
+          '&.MuiButton-containedGray, &.MuiButton-colorGray': {
+            backgroundColor: '#8E8E93',
+            color: '#FFFFFF',
+            boxShadow: '0 4px 12px rgba(142, 142, 147, 0.24)',
+            '&:hover': {
+              backgroundColor: '#7C7C82',
+              boxShadow: '0 6px 16px rgba(142, 142, 147, 0.32)',
+            },
           },
         },
         outlined: {
@@ -318,6 +338,34 @@ const themeOptions: ThemeOptions = {
           fontSize: '0.75rem',
           backdropFilter: 'blur(12px) saturate(160%)',
           WebkitBackdropFilter: 'blur(12px) saturate(160%)',
+          '&.MuiChip-clickable.MuiChip-filled:hover': {
+            backgroundColor: 'rgba(142, 142, 147, 0.22)',
+          },
+          '&.MuiChip-clickable.MuiChip-filled.MuiChip-colorPrimary:hover, &.MuiChip-clickable.MuiChip-filledPrimary:hover': {
+            backgroundColor: 'rgba(0, 122, 255, 0.18)',
+            color: '#005CC8',
+            borderColor: 'rgba(0, 122, 255, 0.32)',
+          },
+          '&.MuiChip-clickable.MuiChip-filled.MuiChip-colorSuccess:hover, &.MuiChip-clickable.MuiChip-filledSuccess:hover': {
+            backgroundColor: 'rgba(52, 199, 89, 0.22)',
+            color: '#1A7A35',
+            borderColor: 'rgba(52, 199, 89, 0.34)',
+          },
+          '&.MuiChip-clickable.MuiChip-filled.MuiChip-colorWarning:hover, &.MuiChip-clickable.MuiChip-filledWarning:hover': {
+            backgroundColor: 'rgba(255, 149, 0, 0.2)',
+            color: '#8A5000',
+            borderColor: 'rgba(255, 149, 0, 0.34)',
+          },
+          '&.MuiChip-clickable.MuiChip-filled.MuiChip-colorError:hover, &.MuiChip-clickable.MuiChip-filledError:hover': {
+            backgroundColor: 'rgba(255, 59, 48, 0.2)',
+            color: '#A0190F',
+            borderColor: 'rgba(255, 59, 48, 0.32)',
+          },
+          '&.MuiChip-clickable.MuiChip-filled.MuiChip-colorSecondary:hover, &.MuiChip-clickable.MuiChip-filledSecondary:hover': {
+            backgroundColor: 'rgba(88, 86, 214, 0.2)',
+            color: '#3E3CAA',
+            borderColor: 'rgba(88, 86, 214, 0.34)',
+          },
         },
         filled: {
           background: 'rgba(142, 142, 147, 0.15)',
@@ -416,7 +464,7 @@ const themeOptions: ThemeOptions = {
       defaultProps: { disableUnderline: true },
       styleOverrides: {
         root: {
-          borderRadius: 18,
+          borderRadius: 12,
           overflow: 'hidden',
           backgroundColor: 'rgba(229, 231, 235, 0.82)',
           transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
@@ -544,19 +592,19 @@ const themeOptions: ThemeOptions = {
       },
       styleOverrides: {
         root: {
-          padding: 7,
-          borderRadius: 12,
+          padding: 4,
+          borderRadius: 8,
           transition: 'background 0.15s ease',
           '& .AwaymessCheckboxIcon': {
-            width: 30,
-            height: 30,
-            borderRadius: 9,
+            width: 18,
+            height: 18,
+            borderRadius: 5,
             display: 'inline-flex',
             alignItems: 'center',
             justifyContent: 'center',
             backgroundColor: 'rgba(120, 120, 128, 0.34)',
             boxShadow:
-              'inset 0 0 0 2px rgba(60, 60, 67, 0.24), inset 0 1px 0 rgba(255,255,255,0.35)',
+              'inset 0 0 0 1.75px rgba(60, 60, 67, 0.24), inset 0 1px 0 rgba(255,255,255,0.35)',
             transition:
               'background-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease',
           },
@@ -566,16 +614,16 @@ const themeOptions: ThemeOptions = {
               '0 3px 8px rgba(0, 122, 255, 0.22), inset 0 1px 0 rgba(255,255,255,0.28)',
           },
           '& .AwaymessCheckboxTick': {
-            width: 15,
-            height: 9,
-            borderLeft: '3.5px solid #FFFFFF',
-            borderBottom: '3.5px solid #FFFFFF',
+            width: 9,
+            height: 5,
+            borderLeft: '2.25px solid #FFFFFF',
+            borderBottom: '2.25px solid #FFFFFF',
             borderRadius: 1,
-            transform: 'translateY(-1px) rotate(-45deg)',
+            transform: 'translateY(-0.5px) rotate(-45deg)',
           },
           '& .AwaymessCheckboxDash': {
-            width: 15,
-            height: 3.5,
+            width: 9,
+            height: 2.25,
             borderRadius: 999,
             backgroundColor: '#FFFFFF',
           },
@@ -601,25 +649,24 @@ const themeOptions: ThemeOptions = {
           background: 'rgba(120, 120, 128, 0.16)',
           borderRadius: 14,
           padding: '4px',
-          overflow: 'visible',
-        },
-        scroller: {
-          overflow: 'visible !important',
+          borderBottom: 0,
+          boxShadow: 'none',
+          '&:before, &:after': {
+            display: 'none',
+          },
+          '& .MuiTabs-flexContainer, & .MuiTabs-list': {
+            position: 'relative',
+            zIndex: 1,
+          },
         },
         indicator: {
-          top: 4,
-          bottom: 4,
-          height: 'auto',
+          height: '100%',
           borderRadius: 10,
           background: glass.light.surfaceStrong,
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           boxShadow: '0 1px 2px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.85)',
           zIndex: 0,
-        },
-        flexContainer: {
-          position: 'relative',
-          zIndex: 1,
         },
       },
     },
@@ -795,22 +842,22 @@ const themeOptions: ThemeOptions = {
           backdropFilter: 'blur(20px) saturate(180%)',
           WebkitBackdropFilter: 'blur(20px) saturate(180%)',
           border: '1px solid rgba(255,255,255,0.4)',
-        },
-        standardSuccess: {
-          background: 'rgba(52, 199, 89, 0.12)',
-          borderColor: 'rgba(52, 199, 89, 0.25)',
-        },
-        standardError: {
-          background: 'rgba(255, 59, 48, 0.10)',
-          borderColor: 'rgba(255, 59, 48, 0.22)',
-        },
-        standardWarning: {
-          background: 'rgba(255, 149, 0, 0.10)',
-          borderColor: 'rgba(255, 149, 0, 0.22)',
-        },
-        standardInfo: {
-          background: 'rgba(0, 122, 255, 0.10)',
-          borderColor: 'rgba(0, 122, 255, 0.22)',
+          '&.MuiAlert-standardSuccess': {
+            background: 'rgba(52, 199, 89, 0.12)',
+            borderColor: 'rgba(52, 199, 89, 0.25)',
+          },
+          '&.MuiAlert-standardError': {
+            background: 'rgba(255, 59, 48, 0.10)',
+            borderColor: 'rgba(255, 59, 48, 0.22)',
+          },
+          '&.MuiAlert-standardWarning': {
+            background: 'rgba(255, 149, 0, 0.10)',
+            borderColor: 'rgba(255, 149, 0, 0.22)',
+          },
+          '&.MuiAlert-standardInfo': {
+            background: 'rgba(0, 122, 255, 0.10)',
+            borderColor: 'rgba(0, 122, 255, 0.22)',
+          },
         },
       },
     },
@@ -975,7 +1022,7 @@ export const darkTheme = createTheme({
       defaultProps: { disableUnderline: true },
       styleOverrides: {
         root: {
-          borderRadius: 18,
+          borderRadius: 12,
           overflow: 'hidden',
           backgroundColor: 'rgba(255,255,255,0.08)',
           transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
@@ -1112,46 +1159,55 @@ export const darkTheme = createTheme({
             backgroundImage: 'none',
             boxShadow: '0 6px 18px rgba(10, 132, 255, 0.44)',
           },
-        },
-        containedPrimary: {
-          backgroundColor: '#0A84FF',
-          color: '#FFFFFF',
-          '&:hover': { backgroundColor: '#2994FF' },
-        },
-        containedSecondary: {
-          backgroundColor: '#5856D6',
-          color: '#FFFFFF',
-          boxShadow: '0 4px 14px rgba(88, 86, 214, 0.36)',
-          '&:hover': {
-            backgroundColor: '#6866E8',
-            boxShadow: '0 6px 18px rgba(88, 86, 214, 0.44)',
+          '&.MuiButton-containedPrimary, &.MuiButton-colorPrimary, &.MuiButton-containedBlue, &.MuiButton-colorBlue': {
+            backgroundColor: '#0A84FF',
+            color: '#FFFFFF',
+            '&:hover': { backgroundColor: '#2994FF' },
           },
-        },
-        containedSuccess: {
-          backgroundColor: '#34C759',
-          color: '#FFFFFF',
-          boxShadow: '0 4px 14px rgba(52, 199, 89, 0.34)',
-          '&:hover': {
-            backgroundColor: '#42D967',
-            boxShadow: '0 6px 18px rgba(52, 199, 89, 0.42)',
+          '&.MuiButton-containedSecondary, &.MuiButton-colorSecondary, &.MuiButton-containedPurple, &.MuiButton-colorPurple': {
+            backgroundColor: '#5856D6',
+            color: '#FFFFFF',
+            boxShadow: '0 4px 14px rgba(88, 86, 214, 0.36)',
+            '&:hover': {
+              backgroundColor: '#6866E8',
+              boxShadow: '0 6px 18px rgba(88, 86, 214, 0.44)',
+            },
           },
-        },
-        containedError: {
-          backgroundColor: '#FF3B30',
-          color: '#FFFFFF',
-          boxShadow: '0 4px 14px rgba(255, 59, 48, 0.34)',
-          '&:hover': {
-            backgroundColor: '#FF5148',
-            boxShadow: '0 6px 18px rgba(255, 59, 48, 0.42)',
+          '&.MuiButton-containedSuccess, &.MuiButton-colorSuccess, &.MuiButton-containedGreen, &.MuiButton-colorGreen': {
+            backgroundColor: '#34C759',
+            color: '#FFFFFF',
+            boxShadow: '0 4px 14px rgba(52, 199, 89, 0.34)',
+            '&:hover': {
+              backgroundColor: '#42D967',
+              boxShadow: '0 6px 18px rgba(52, 199, 89, 0.42)',
+            },
           },
-        },
-        containedWarning: {
-          backgroundColor: '#FF9500',
-          color: '#1C1C1E',
-          boxShadow: '0 4px 14px rgba(255, 149, 0, 0.34)',
-          '&:hover': {
-            backgroundColor: '#FFA51F',
-            boxShadow: '0 6px 18px rgba(255, 149, 0, 0.42)',
+          '&.MuiButton-containedError, &.MuiButton-colorError, &.MuiButton-containedRed, &.MuiButton-colorRed': {
+            backgroundColor: '#FF3B30',
+            color: '#FFFFFF',
+            boxShadow: '0 4px 14px rgba(255, 59, 48, 0.34)',
+            '&:hover': {
+              backgroundColor: '#FF5148',
+              boxShadow: '0 6px 18px rgba(255, 59, 48, 0.42)',
+            },
+          },
+          '&.MuiButton-containedWarning, &.MuiButton-colorWarning, &.MuiButton-containedOrange, &.MuiButton-colorOrange': {
+            backgroundColor: '#FF9500',
+            color: '#1C1C1E',
+            boxShadow: '0 4px 14px rgba(255, 149, 0, 0.34)',
+            '&:hover': {
+              backgroundColor: '#FFA51F',
+              boxShadow: '0 6px 18px rgba(255, 149, 0, 0.42)',
+            },
+          },
+          '&.MuiButton-containedGray, &.MuiButton-colorGray': {
+            backgroundColor: '#8E8E93',
+            color: '#FFFFFF',
+            boxShadow: '0 4px 14px rgba(142, 142, 147, 0.34)',
+            '&:hover': {
+              backgroundColor: '#AEAEB2',
+              boxShadow: '0 6px 18px rgba(142, 142, 147, 0.42)',
+            },
           },
         },
         outlined: {
@@ -1182,25 +1238,24 @@ export const darkTheme = createTheme({
           background: 'rgba(255, 255, 255, 0.14)',
           borderRadius: 14,
           padding: '4px',
-          overflow: 'visible',
-        },
-        scroller: {
-          overflow: 'visible !important',
+          borderBottom: 0,
+          boxShadow: 'none',
+          '&:before, &:after': {
+            display: 'none',
+          },
+          '& .MuiTabs-flexContainer, & .MuiTabs-list': {
+            position: 'relative',
+            zIndex: 1,
+          },
         },
         indicator: {
-          top: 4,
-          bottom: 4,
-          height: 'auto',
+          height: '100%',
           borderRadius: 10,
           background: glass.dark.surfaceStrong,
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           boxShadow: '0 1px 2px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08)',
           zIndex: 0,
-        },
-        flexContainer: {
-          position: 'relative',
-          zIndex: 1,
         },
       },
     },
@@ -1288,22 +1343,22 @@ export const darkTheme = createTheme({
           backdropFilter: 'blur(20px) saturate(180%)',
           WebkitBackdropFilter: 'blur(20px) saturate(180%)',
           border: '1px solid rgba(255,255,255,0.1)',
-        },
-        standardSuccess: {
-          background: 'rgba(52, 199, 89, 0.15)',
-          borderColor: 'rgba(52, 199, 89, 0.3)',
-        },
-        standardError: {
-          background: 'rgba(255, 59, 48, 0.15)',
-          borderColor: 'rgba(255, 59, 48, 0.3)',
-        },
-        standardWarning: {
-          background: 'rgba(255, 149, 0, 0.15)',
-          borderColor: 'rgba(255, 149, 0, 0.3)',
-        },
-        standardInfo: {
-          background: 'rgba(0, 122, 255, 0.15)',
-          borderColor: 'rgba(0, 122, 255, 0.3)',
+          '&.MuiAlert-standardSuccess': {
+            background: 'rgba(52, 199, 89, 0.15)',
+            borderColor: 'rgba(52, 199, 89, 0.3)',
+          },
+          '&.MuiAlert-standardError': {
+            background: 'rgba(255, 59, 48, 0.15)',
+            borderColor: 'rgba(255, 59, 48, 0.3)',
+          },
+          '&.MuiAlert-standardWarning': {
+            background: 'rgba(255, 149, 0, 0.15)',
+            borderColor: 'rgba(255, 149, 0, 0.3)',
+          },
+          '&.MuiAlert-standardInfo': {
+            background: 'rgba(0, 122, 255, 0.15)',
+            borderColor: 'rgba(0, 122, 255, 0.3)',
+          },
         },
       },
     },
@@ -1316,6 +1371,34 @@ export const darkTheme = createTheme({
           fontSize: '0.75rem',
           backdropFilter: 'blur(12px) saturate(160%)',
           WebkitBackdropFilter: 'blur(12px) saturate(160%)',
+          '&.MuiChip-clickable.MuiChip-filled:hover': {
+            backgroundColor: 'rgba(255, 255, 255, 0.14)',
+          },
+          '&.MuiChip-clickable.MuiChip-filled.MuiChip-colorPrimary:hover, &.MuiChip-clickable.MuiChip-filledPrimary:hover': {
+            backgroundColor: 'rgba(0, 122, 255, 0.28)',
+            color: '#47A3FF',
+            borderColor: 'rgba(0, 122, 255, 0.44)',
+          },
+          '&.MuiChip-clickable.MuiChip-filled.MuiChip-colorSuccess:hover, &.MuiChip-clickable.MuiChip-filledSuccess:hover': {
+            backgroundColor: 'rgba(52, 199, 89, 0.28)',
+            color: '#6FD98B',
+            borderColor: 'rgba(52, 199, 89, 0.4)',
+          },
+          '&.MuiChip-clickable.MuiChip-filled.MuiChip-colorWarning:hover, &.MuiChip-clickable.MuiChip-filledWarning:hover': {
+            backgroundColor: 'rgba(255, 149, 0, 0.26)',
+            color: '#FFB340',
+            borderColor: 'rgba(255, 149, 0, 0.4)',
+          },
+          '&.MuiChip-clickable.MuiChip-filled.MuiChip-colorError:hover, &.MuiChip-clickable.MuiChip-filledError:hover': {
+            backgroundColor: 'rgba(255, 59, 48, 0.26)',
+            color: '#FF7A73',
+            borderColor: 'rgba(255, 59, 48, 0.4)',
+          },
+          '&.MuiChip-clickable.MuiChip-filled.MuiChip-colorSecondary:hover, &.MuiChip-clickable.MuiChip-filledSecondary:hover': {
+            backgroundColor: 'rgba(88, 86, 214, 0.28)',
+            color: '#7B79E6',
+            borderColor: 'rgba(88, 86, 214, 0.42)',
+          },
         },
         filled: {
           background: 'rgba(255, 255, 255, 0.1)',

@@ -12,8 +12,8 @@ const StyledCard = styled(Card)(({ theme }) => ({
   '&:hover': {
     boxShadow:
       theme.palette.mode === 'dark'
-        ? '0 18px 52px rgba(0, 0, 0, 0.54), 0 8px 20px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255,255,255,0.12)'
-        : '0 18px 48px rgba(28, 32, 42, 0.14), 0 8px 18px rgba(28, 32, 42, 0.08), inset 0 1px 0 rgba(255,255,255,0.94)',
+        ? '0 32px 76px rgba(0, 0, 0, 0.62), 0 12px 26px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255,255,255,0.14), inset 0 -1px 0 rgba(255,255,255,0.06)'
+        : '0 28px 68px rgba(31, 35, 45, 0.16), 0 10px 24px rgba(31, 35, 45, 0.1), inset 0 1px 0 rgba(255,255,255,0.92), inset 0 -1px 0 rgba(255,255,255,0.32)',
   },
 }));
 

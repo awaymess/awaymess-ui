@@ -35,31 +35,42 @@ declare module '@mui/material/Button' {
 
 const glass = {
   light: {
-    surface: 'rgba(255, 255, 255, 0.74)',
-    surfaceStrong: 'rgba(255, 255, 255, 0.9)',
-    surfaceSubtle: 'rgba(255, 255, 255, 0.42)',
-    border: 'rgba(255, 255, 255, 0.68)',
-    borderSubtle: 'rgba(210, 214, 224, 0.66)',
+    surface: 'rgba(255, 255, 255, 0.58)',
+    surfaceStrong: 'rgba(255, 255, 255, 0.74)',
+    surfaceSubtle: 'rgba(255, 255, 255, 0.28)',
+    border: 'rgba(255, 255, 255, 0.72)',
+    borderSubtle: 'rgba(255, 255, 255, 0.44)',
     shadow:
-      '0 8px 24px rgba(28, 32, 42, 0.09), 0 2px 6px rgba(28, 32, 42, 0.05), inset 0 1px 0 rgba(255,255,255,0.92)',
+      '0 18px 44px rgba(31, 35, 45, 0.1), 0 4px 12px rgba(31, 35, 45, 0.06), inset 0 1px 0 rgba(255,255,255,0.86), inset 0 -1px 0 rgba(255,255,255,0.28)',
     shadowElevated:
-      '0 18px 48px rgba(28, 32, 42, 0.14), 0 8px 18px rgba(28, 32, 42, 0.08), inset 0 1px 0 rgba(255,255,255,0.94)',
-    blur: 'blur(24px) saturate(120%) brightness(1.02)',
-    tint: 'rgba(244, 245, 248, 0.62)',
+      '0 28px 68px rgba(31, 35, 45, 0.16), 0 10px 24px rgba(31, 35, 45, 0.1), inset 0 1px 0 rgba(255,255,255,0.92), inset 0 -1px 0 rgba(255,255,255,0.32)',
+    blur: 'blur(34px) saturate(180%) brightness(1.08)',
+    tint: 'rgba(246, 248, 252, 0.44)',
   },
   dark: {
-    surface: 'rgba(34, 35, 40, 0.74)',
-    surfaceStrong: 'rgba(40, 41, 46, 0.9)',
-    surfaceSubtle: 'rgba(255, 255, 255, 0.07)',
-    border: 'rgba(255, 255, 255, 0.16)',
-    borderSubtle: 'rgba(255, 255, 255, 0.11)',
+    surface: 'rgba(24, 26, 32, 0.54)',
+    surfaceStrong: 'rgba(31, 33, 40, 0.72)',
+    surfaceSubtle: 'rgba(255, 255, 255, 0.08)',
+    border: 'rgba(255, 255, 255, 0.18)',
+    borderSubtle: 'rgba(255, 255, 255, 0.1)',
     shadow:
-      '0 8px 28px rgba(0, 0, 0, 0.42), 0 2px 8px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255,255,255,0.1)',
+      '0 20px 52px rgba(0, 0, 0, 0.52), 0 6px 18px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255,255,255,0.12), inset 0 -1px 0 rgba(255,255,255,0.05)',
     shadowElevated:
-      '0 18px 52px rgba(0, 0, 0, 0.54), 0 8px 20px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255,255,255,0.12)',
-    blur: 'blur(24px) saturate(112%) brightness(0.94)',
-    tint: 'rgba(24, 25, 30, 0.52)',
+      '0 32px 76px rgba(0, 0, 0, 0.62), 0 12px 26px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255,255,255,0.14), inset 0 -1px 0 rgba(255,255,255,0.06)',
+    blur: 'blur(34px) saturate(160%) brightness(0.9)',
+    tint: 'rgba(15, 17, 22, 0.44)',
   },
+} as const
+
+const glassLayer = {
+  light:
+    'linear-gradient(180deg, rgba(255,255,255,0.76), rgba(255,255,255,0.34)), rgba(255,255,255,0.58)',
+  lightStrong:
+    'linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.5)), rgba(255,255,255,0.74)',
+  dark:
+    'linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03)), rgba(24,26,32,0.54)',
+  darkStrong:
+    'linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.04)), rgba(31,33,40,0.72)',
 } as const
 
 // ─── Shared base theme options ────────────────────────────────────────────────
@@ -130,7 +141,7 @@ const themeOptions: ThemeOptions = {
       contrastText: '#FFFFFF',
     },
     background: {
-      default: '#EEF2F8',
+      default: '#F5F7FB',
       paper: glass.light.surface,
     },
     text: {
@@ -202,7 +213,7 @@ const themeOptions: ThemeOptions = {
           fontWeight: 500,
           boxShadow: 'none',
           letterSpacing: '-0.01em',
-          transition: 'background-color 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease',
+          transition: 'background-color 0.18s ease, border-color 0.18s ease, opacity 0.18s ease',
           '&:hover': {
             boxShadow: 'none',
           },
@@ -218,12 +229,15 @@ const themeOptions: ThemeOptions = {
         },
         contained: {
           backgroundColor: '#0A84FF',
-          backgroundImage: 'none',
-          boxShadow: '0 4px 12px rgba(10, 132, 255, 0.24)',
+          backgroundImage: 'linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0))',
+          border: '1px solid rgba(0, 0, 0, 0.12)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -1px 0 rgba(0,0,0,0.12)',
           '&:hover': {
             backgroundColor: '#007AFF',
-            backgroundImage: 'none',
-            boxShadow: '0 6px 16px rgba(10, 132, 255, 0.32)',
+            backgroundImage:
+              'linear-gradient(180deg, rgba(255,255,255,0.24), rgba(255,255,255,0))',
+            borderColor: 'rgba(0, 0, 0, 0.16)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.34), inset 0 -1px 0 rgba(0,0,0,0.14)',
           },
           '&.MuiButton-containedPrimary, &.MuiButton-colorPrimary, &.MuiButton-containedBlue, &.MuiButton-colorBlue': {
             backgroundColor: '#0A84FF',
@@ -233,58 +247,60 @@ const themeOptions: ThemeOptions = {
           '&.MuiButton-containedSecondary, &.MuiButton-colorSecondary, &.MuiButton-containedPurple, &.MuiButton-colorPurple': {
             backgroundColor: '#5856D6',
             color: '#FFFFFF',
-            boxShadow: '0 4px 12px rgba(88, 86, 214, 0.24)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -1px 0 rgba(0,0,0,0.12)',
             '&:hover': {
               backgroundColor: '#4B49C7',
-              boxShadow: '0 6px 16px rgba(88, 86, 214, 0.32)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.34), inset 0 -1px 0 rgba(0,0,0,0.14)',
             },
           },
           '&.MuiButton-containedSuccess, &.MuiButton-colorSuccess, &.MuiButton-containedGreen, &.MuiButton-colorGreen': {
             backgroundColor: '#34C759',
             color: '#FFFFFF',
-            boxShadow: '0 4px 12px rgba(52, 199, 89, 0.24)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -1px 0 rgba(0,0,0,0.12)',
             '&:hover': {
               backgroundColor: '#2FB34F',
-              boxShadow: '0 6px 16px rgba(52, 199, 89, 0.32)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.34), inset 0 -1px 0 rgba(0,0,0,0.14)',
             },
           },
           '&.MuiButton-containedError, &.MuiButton-colorError, &.MuiButton-containedRed, &.MuiButton-colorRed': {
             backgroundColor: '#FF3B30',
             color: '#FFFFFF',
-            boxShadow: '0 4px 12px rgba(255, 59, 48, 0.24)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -1px 0 rgba(0,0,0,0.12)',
             '&:hover': {
               backgroundColor: '#E9342A',
-              boxShadow: '0 6px 16px rgba(255, 59, 48, 0.32)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.34), inset 0 -1px 0 rgba(0,0,0,0.14)',
             },
           },
           '&.MuiButton-containedWarning, &.MuiButton-colorWarning, &.MuiButton-containedOrange, &.MuiButton-colorOrange': {
             backgroundColor: '#FF9500',
             color: '#1C1C1E',
-            boxShadow: '0 4px 12px rgba(255, 149, 0, 0.24)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.36), inset 0 -1px 0 rgba(0,0,0,0.1)',
             '&:hover': {
               backgroundColor: '#E68600',
-              boxShadow: '0 6px 16px rgba(255, 149, 0, 0.32)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.42), inset 0 -1px 0 rgba(0,0,0,0.12)',
             },
           },
           '&.MuiButton-containedGray, &.MuiButton-colorGray': {
             backgroundColor: '#8E8E93',
             color: '#FFFFFF',
-            boxShadow: '0 4px 12px rgba(142, 142, 147, 0.24)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -1px 0 rgba(0,0,0,0.12)',
             '&:hover': {
               backgroundColor: '#7C7C82',
-              boxShadow: '0 6px 16px rgba(142, 142, 147, 0.32)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.34), inset 0 -1px 0 rgba(0,0,0,0.14)',
             },
           },
         },
         outlined: {
           borderWidth: 1,
-          borderColor: 'rgba(60, 60, 67, 0.2)',
+          borderColor: 'rgba(60, 60, 67, 0.24)',
           backdropFilter: glass.light.blur,
           WebkitBackdropFilter: glass.light.blur,
-          backgroundColor: 'rgba(255, 255, 255, 0.34)',
+          backgroundColor: 'rgba(255, 255, 255, 0.42)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.68)',
           '&:hover': {
-            borderColor: 'rgba(60, 60, 67, 0.28)',
-            backgroundColor: 'rgba(255, 255, 255, 0.46)',
+            borderColor: 'rgba(60, 60, 67, 0.34)',
+            backgroundColor: 'rgba(255, 255, 255, 0.56)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.8)',
           },
         },
         text: {
@@ -303,12 +319,12 @@ const themeOptions: ThemeOptions = {
       styleOverrides: {
         root: {
           borderRadius: 18,
-          background: glass.light.surface,
+          background: glassLayer.light,
           backdropFilter: glass.light.blur,
           WebkitBackdropFilter: glass.light.blur,
           border: `1px solid ${glass.light.border}`,
           boxShadow: glass.light.shadow,
-          backgroundImage: 'none',
+          backgroundClip: 'padding-box',
         },
       },
     },
@@ -317,11 +333,11 @@ const themeOptions: ThemeOptions = {
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundImage: 'none',
-          background: glass.light.surface,
+          background: glassLayer.light,
           backdropFilter: glass.light.blur,
           WebkitBackdropFilter: glass.light.blur,
           border: `1px solid ${glass.light.border}`,
+          backgroundClip: 'padding-box',
         },
         elevation0: { boxShadow: 'none' },
         elevation1: { boxShadow: glass.light.shadow },
@@ -336,8 +352,8 @@ const themeOptions: ThemeOptions = {
           borderRadius: 999,
           fontWeight: 500,
           fontSize: '0.75rem',
-          backdropFilter: 'blur(12px) saturate(160%)',
-          WebkitBackdropFilter: 'blur(12px) saturate(160%)',
+          backdropFilter: 'blur(18px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(18px) saturate(180%)',
           '&.MuiChip-clickable.MuiChip-filled:hover': {
             backgroundColor: 'rgba(142, 142, 147, 0.22)',
           },
@@ -368,9 +384,10 @@ const themeOptions: ThemeOptions = {
           },
         },
         filled: {
-          background: 'rgba(142, 142, 147, 0.15)',
-          border: '1px solid rgba(255,255,255,0.4)',
-          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.5)',
+          background:
+            'linear-gradient(180deg, rgba(255,255,255,0.48), rgba(255,255,255,0.22)), rgba(142, 142, 147, 0.14)',
+          border: '1px solid rgba(255,255,255,0.58)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.76), 0 2px 6px rgba(31,35,45,0.05)',
         },
         colorSuccess: {
           backgroundColor: 'rgba(52, 199, 89, 0.15)',
@@ -401,10 +418,12 @@ const themeOptions: ThemeOptions = {
         root: {
           '& .MuiOutlinedInput-root': {
             borderRadius: 12,
-            background: 'rgba(255,255,255,0.6)',
-            backdropFilter: 'blur(16px) saturate(145%)',
-            WebkitBackdropFilter: 'blur(16px) saturate(145%)',
+            background: 'rgba(255,255,255,0.46)',
+            backdropFilter: 'blur(24px) saturate(170%)',
+            WebkitBackdropFilter: 'blur(24px) saturate(170%)',
             transition: 'box-shadow 0.2s ease, background 0.2s ease',
+            boxShadow:
+              '0 0 0 1px rgba(255,255,255,0.48), inset 0 1px 0 rgba(255,255,255,0.74)',
             '& fieldset': {
               borderColor: 'rgba(60, 60, 67, 0.2)',
               borderWidth: 1,
@@ -414,8 +433,9 @@ const themeOptions: ThemeOptions = {
               borderColor: 'rgba(60, 60, 67, 0.3)',
             },
             '&.Mui-focused': {
-              background: 'rgba(255,255,255,0.75)',
-              boxShadow: '0 0 0 3px rgba(10, 132, 255, 0.16)',
+              background: 'rgba(255,255,255,0.68)',
+              boxShadow:
+                '0 0 0 3px rgba(10, 132, 255, 0.16), 0 0 0 1px rgba(255,255,255,0.68), inset 0 1px 0 rgba(255,255,255,0.86)',
             },
             '&.Mui-focused fieldset': {
               borderColor: '#0A84FF',
@@ -437,16 +457,19 @@ const themeOptions: ThemeOptions = {
       styleOverrides: {
         root: {
           borderRadius: 12,
-          background: 'rgba(255,255,255,0.6)',
-          backdropFilter: 'blur(16px) saturate(145%)',
-          WebkitBackdropFilter: 'blur(16px) saturate(145%)',
+          background: 'rgba(255,255,255,0.46)',
+          backdropFilter: 'blur(24px) saturate(170%)',
+          WebkitBackdropFilter: 'blur(24px) saturate(170%)',
           transition: 'box-shadow 0.2s ease, background 0.2s ease',
+          boxShadow:
+            '0 0 0 1px rgba(255,255,255,0.48), inset 0 1px 0 rgba(255,255,255,0.74)',
           '&:hover .MuiOutlinedInput-notchedOutline': {
             borderColor: 'rgba(60, 60, 67, 0.3)',
           },
           '&.Mui-focused': {
-            background: 'rgba(255,255,255,0.75)',
-            boxShadow: '0 0 0 3px rgba(10, 132, 255, 0.16)',
+            background: 'rgba(255,255,255,0.68)',
+            boxShadow:
+              '0 0 0 3px rgba(10, 132, 255, 0.16), 0 0 0 1px rgba(255,255,255,0.68), inset 0 1px 0 rgba(255,255,255,0.86)',
           },
           '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: '#0A84FF',
@@ -466,14 +489,19 @@ const themeOptions: ThemeOptions = {
         root: {
           borderRadius: 12,
           overflow: 'hidden',
-          backgroundColor: 'rgba(229, 231, 235, 0.82)',
+          backgroundColor: 'rgba(235, 238, 243, 0.58)',
+          backdropFilter: 'blur(22px) saturate(160%)',
+          WebkitBackdropFilter: 'blur(22px) saturate(160%)',
+          boxShadow:
+            '0 0 0 1px rgba(60,60,67,0.08), inset 0 1px 0 rgba(255,255,255,0.62)',
           transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
           '&:hover': {
-            backgroundColor: 'rgba(221, 224, 229, 0.95)',
+            backgroundColor: 'rgba(229, 233, 239, 0.7)',
           },
           '&.Mui-focused': {
-            backgroundColor: 'rgba(255, 255, 255, 0.82)',
-            boxShadow: '0 0 0 3px rgba(10, 132, 255, 0.16)',
+            backgroundColor: 'rgba(255, 255, 255, 0.62)',
+            boxShadow:
+              '0 0 0 3px rgba(10, 132, 255, 0.16), 0 0 0 1px rgba(60,60,67,0.1), inset 0 1px 0 rgba(255,255,255,0.82)',
           },
           '&.Mui-disabled': {
             backgroundColor: 'rgba(229, 231, 235, 0.5)',
@@ -501,12 +529,12 @@ const themeOptions: ThemeOptions = {
       styleOverrides: {
         paper: {
           borderRadius: 16,
-          background: glass.light.surfaceStrong,
-          backdropFilter: 'blur(28px) saturate(122%)',
-          WebkitBackdropFilter: 'blur(28px) saturate(122%)',
+          background: glassLayer.lightStrong,
+          backdropFilter: glass.light.blur,
+          WebkitBackdropFilter: glass.light.blur,
           border: `1px solid ${glass.light.border}`,
           boxShadow: glass.light.shadowElevated,
-          backgroundImage: 'none',
+          backgroundClip: 'padding-box',
         },
       },
     },
@@ -535,12 +563,12 @@ const themeOptions: ThemeOptions = {
       styleOverrides: {
         paper: {
           borderRadius: 22,
-          background: glass.light.surfaceStrong,
-          backdropFilter: 'blur(34px) saturate(145%)',
-          WebkitBackdropFilter: 'blur(34px) saturate(145%)',
+          background: glassLayer.lightStrong,
+          backdropFilter: glass.light.blur,
+          WebkitBackdropFilter: glass.light.blur,
           border: `1px solid ${glass.light.border}`,
           boxShadow: glass.light.shadowElevated,
-          backgroundImage: 'none',
+          backgroundClip: 'padding-box',
         },
       },
     },
@@ -549,11 +577,11 @@ const themeOptions: ThemeOptions = {
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          background: glass.light.surfaceStrong,
-          backdropFilter: 'blur(28px) saturate(145%)',
-          WebkitBackdropFilter: 'blur(28px) saturate(145%)',
+          background: glassLayer.lightStrong,
+          backdropFilter: glass.light.blur,
+          WebkitBackdropFilter: glass.light.blur,
           border: `1px solid ${glass.light.borderSubtle}`,
-          backgroundImage: 'none',
+          backgroundClip: 'padding-box',
         },
       },
     },
@@ -563,13 +591,13 @@ const themeOptions: ThemeOptions = {
       defaultProps: { elevation: 0 },
       styleOverrides: {
         root: {
-          background: 'rgba(248, 248, 250, 0.72)',
-          backdropFilter: 'blur(24px) saturate(140%) brightness(1.02)',
-          WebkitBackdropFilter: 'blur(24px) saturate(140%) brightness(1.02)',
-          borderBottom: `1px solid rgba(60, 60, 67, 0.12)`,
-          boxShadow: '0 1px 0 rgba(0,0,0,0.04)',
+          background:
+            'linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.42)), rgba(248, 250, 253, 0.5)',
+          backdropFilter: glass.light.blur,
+          WebkitBackdropFilter: glass.light.blur,
+          borderBottom: `1px solid rgba(255, 255, 255, 0.52)`,
+          boxShadow: '0 1px 0 rgba(31,35,45,0.04), inset 0 -1px 0 rgba(255,255,255,0.28)',
           color: '#1C1C1E',
-          backgroundImage: 'none',
         },
       },
     },
@@ -611,7 +639,7 @@ const themeOptions: ThemeOptions = {
           '& .AwaymessCheckboxIcon-checked': {
             backgroundColor: 'currentColor',
             boxShadow:
-              '0 3px 8px rgba(0, 122, 255, 0.22), inset 0 1px 0 rgba(255,255,255,0.28)',
+              '0 3px 8px color-mix(in srgb, currentColor 28%, transparent), 0 0 0 1px color-mix(in srgb, currentColor 36%, transparent), inset 0 1px 0 rgba(255,255,255,0.28)',
           },
           '& .AwaymessCheckboxTick': {
             width: 9,
@@ -628,7 +656,7 @@ const themeOptions: ThemeOptions = {
             backgroundColor: '#FFFFFF',
           },
           '&:hover': {
-            backgroundColor: 'rgba(0, 122, 255, 0.08)',
+            backgroundColor: 'color-mix(in srgb, currentColor 10%, transparent)',
           },
           '&:active .AwaymessCheckboxIcon': {
             transform: 'scale(0.96)',
@@ -646,11 +674,14 @@ const themeOptions: ThemeOptions = {
       styleOverrides: {
         root: {
           minHeight: 44,
-          background: 'rgba(120, 120, 128, 0.16)',
+          background:
+            'linear-gradient(180deg, rgba(255,255,255,0.32), rgba(255,255,255,0.12)), rgba(120, 120, 128, 0.12)',
+          backdropFilter: 'blur(20px) saturate(170%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(170%)',
           borderRadius: 14,
           padding: '4px',
           borderBottom: 0,
-          boxShadow: 'none',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.5)',
           '&:before, &:after': {
             display: 'none',
           },
@@ -662,10 +693,11 @@ const themeOptions: ThemeOptions = {
         indicator: {
           height: '100%',
           borderRadius: 10,
-          background: glass.light.surfaceStrong,
-          backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)',
-          boxShadow: '0 1px 2px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.85)',
+          background: glassLayer.lightStrong,
+          backdropFilter: 'blur(22px) saturate(170%)',
+          WebkitBackdropFilter: 'blur(22px) saturate(170%)',
+          boxShadow:
+            '0 8px 18px rgba(31,35,45,0.08), inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(255,255,255,0.35)',
           zIndex: 0,
         },
       },
@@ -739,12 +771,12 @@ const themeOptions: ThemeOptions = {
       styleOverrides: {
         paper: {
           borderRadius: 16,
-          background: glass.light.surfaceStrong,
-          backdropFilter: 'blur(32px) saturate(200%)',
-          WebkitBackdropFilter: 'blur(32px) saturate(200%)',
+          background: glassLayer.lightStrong,
+          backdropFilter: glass.light.blur,
+          WebkitBackdropFilter: glass.light.blur,
           border: `1px solid ${glass.light.border}`,
           boxShadow: glass.light.shadowElevated,
-          backgroundImage: 'none',
+          backgroundClip: 'padding-box',
         },
         option: {
           borderRadius: 10,
@@ -775,23 +807,41 @@ const themeOptions: ThemeOptions = {
             transform: 'translateX(22px)',
             color: '#FFFFFF',
             '& + .MuiSwitch-track': {
-              background: 'linear-gradient(135deg, #34D058, #34C759)',
+              background:
+                'linear-gradient(180deg, rgba(255,255,255,0.26), rgba(255,255,255,0)), linear-gradient(135deg, #34D058, #30D158)',
               opacity: 1,
-              boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.15)',
+              borderColor: 'rgba(35, 170, 72, 0.36)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.08)',
             },
+          },
+          '&.Mui-disabled + .MuiSwitch-track': {
+            opacity: 1,
+            background:
+              'linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0.18)), rgba(120, 120, 128, 0.14)',
+            borderColor: 'rgba(60, 60, 67, 0.1)',
+          },
+          '&.Mui-disabled .MuiSwitch-thumb': {
+            background:
+              'linear-gradient(180deg, rgba(255,255,255,0.78), rgba(245,246,248,0.58))',
+            borderColor: 'rgba(60, 60, 67, 0.08)',
           },
         },
         thumb: {
           width: 22,
           height: 22,
-          boxShadow:
-            '0 2px 6px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.9)',
+          background:
+            'linear-gradient(180deg, rgba(255,255,255,0.96), rgba(244,244,246,0.9))',
+          border: '1px solid rgba(60, 60, 67, 0.14)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.86)',
         },
         track: {
           borderRadius: 14,
-          background: 'rgba(120, 120, 128, 0.32)',
+          background:
+            'linear-gradient(180deg, rgba(255,255,255,0.3), rgba(255,255,255,0.06)), rgba(120, 120, 128, 0.28)',
           opacity: 1,
           transition: 'background 0.25s ease, opacity 0.25s ease',
+          border: '1px solid rgba(60, 60, 67, 0.16)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.42)',
         },
       },
     },
@@ -823,13 +873,15 @@ const themeOptions: ThemeOptions = {
       styleOverrides: {
         tooltip: {
           borderRadius: 10,
-          background: 'rgba(28, 28, 30, 0.82)',
-          backdropFilter: 'blur(16px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+          background:
+            'linear-gradient(180deg, rgba(60,60,67,0.72), rgba(28,28,30,0.68)), rgba(28,28,30,0.74)',
+          backdropFilter: 'blur(24px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(24px) saturate(180%)',
           fontSize: '0.75rem',
           fontWeight: 500,
-          border: '1px solid rgba(255,255,255,0.1)',
-          boxShadow: '0 4px 16px rgba(0,0,0,0.25)',
+          border: '1px solid rgba(255,255,255,0.18)',
+          boxShadow:
+            '0 10px 28px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.12)',
         },
       },
     },
@@ -839,9 +891,10 @@ const themeOptions: ThemeOptions = {
       styleOverrides: {
         root: {
           borderRadius: 14,
-          backdropFilter: 'blur(20px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-          border: '1px solid rgba(255,255,255,0.4)',
+          backdropFilter: glass.light.blur,
+          WebkitBackdropFilter: glass.light.blur,
+          border: '1px solid rgba(255,255,255,0.56)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.72), 0 8px 24px rgba(31,35,45,0.06)',
           '&.MuiAlert-standardSuccess': {
             background: 'rgba(52, 199, 89, 0.12)',
             borderColor: 'rgba(52, 199, 89, 0.25)',
@@ -906,7 +959,7 @@ export const darkTheme = createTheme({
     mode: 'dark',
     ...themeOptions.palette!,
     background: {
-      default: '#0E111B',
+      default: '#080A10',
       paper: glass.dark.surface,
     },
     text: {
@@ -924,12 +977,12 @@ export const darkTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 18,
-          background: glass.dark.surface,
+          background: glassLayer.dark,
           backdropFilter: glass.dark.blur,
           WebkitBackdropFilter: glass.dark.blur,
           border: `1px solid ${glass.dark.border}`,
           boxShadow: glass.dark.shadow,
-          backgroundImage: 'none',
+          backgroundClip: 'padding-box',
         },
       },
     },
@@ -937,11 +990,11 @@ export const darkTheme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundImage: 'none',
-          background: glass.dark.surface,
+          background: glassLayer.dark,
           backdropFilter: glass.dark.blur,
           WebkitBackdropFilter: glass.dark.blur,
           border: `1px solid ${glass.dark.border}`,
+          backgroundClip: 'padding-box',
         },
         elevation0: { boxShadow: 'none' },
         elevation1: { boxShadow: glass.dark.shadow },
@@ -955,20 +1008,23 @@ export const darkTheme = createTheme({
           '& .MuiOutlinedInput-root': {
             borderRadius: 12,
             background: 'rgba(255,255,255,0.07)',
-            backdropFilter: 'blur(16px) saturate(130%)',
-            WebkitBackdropFilter: 'blur(16px) saturate(130%)',
+            backdropFilter: 'blur(26px) saturate(150%)',
+            WebkitBackdropFilter: 'blur(26px) saturate(150%)',
             transition: 'box-shadow 0.2s ease, background 0.2s ease',
+            boxShadow:
+              '0 0 0 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.1)',
             '& fieldset': {
-              borderColor: 'rgba(255, 255, 255, 0.14)',
+              borderColor: 'rgba(255, 255, 255, 0.22)',
               borderWidth: 1,
               transition: 'border-color 0.2s ease',
             },
             '&:hover fieldset': {
-              borderColor: 'rgba(255, 255, 255, 0.26)',
+              borderColor: 'rgba(255, 255, 255, 0.34)',
             },
             '&.Mui-focused': {
-              background: 'rgba(255,255,255,0.10)',
-              boxShadow: '0 0 0 3px rgba(10, 132, 255, 0.22)',
+              background: 'rgba(255,255,255,0.12)',
+              boxShadow:
+                '0 0 0 3px rgba(10, 132, 255, 0.22), 0 0 0 1px rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.16)',
             },
             '&.Mui-focused fieldset': {
               borderColor: '#0A84FF',
@@ -996,15 +1052,18 @@ export const darkTheme = createTheme({
         root: {
           borderRadius: 12,
           background: 'rgba(255,255,255,0.07)',
-          backdropFilter: 'blur(16px) saturate(130%)',
-          WebkitBackdropFilter: 'blur(16px) saturate(130%)',
+          backdropFilter: 'blur(26px) saturate(150%)',
+          WebkitBackdropFilter: 'blur(26px) saturate(150%)',
           transition: 'box-shadow 0.2s ease, background 0.2s ease',
+          boxShadow:
+            '0 0 0 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.1)',
           '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: 'rgba(255, 255, 255, 0.26)',
+            borderColor: 'rgba(255, 255, 255, 0.34)',
           },
           '&.Mui-focused': {
-            background: 'rgba(255,255,255,0.10)',
-            boxShadow: '0 0 0 3px rgba(10, 132, 255, 0.22)',
+            background: 'rgba(255,255,255,0.12)',
+            boxShadow:
+              '0 0 0 3px rgba(10, 132, 255, 0.22), 0 0 0 1px rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.16)',
           },
           '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: '#0A84FF',
@@ -1012,7 +1071,7 @@ export const darkTheme = createTheme({
           },
         },
         notchedOutline: {
-          borderColor: 'rgba(255, 255, 255, 0.14)',
+          borderColor: 'rgba(255, 255, 255, 0.22)',
           transition: 'border-color 0.2s ease',
         },
       },
@@ -1025,13 +1084,18 @@ export const darkTheme = createTheme({
           borderRadius: 12,
           overflow: 'hidden',
           backgroundColor: 'rgba(255,255,255,0.08)',
+          backdropFilter: 'blur(24px) saturate(145%)',
+          WebkitBackdropFilter: 'blur(24px) saturate(145%)',
+          boxShadow:
+            '0 0 0 1px rgba(255,255,255,0.16), inset 0 1px 0 rgba(255,255,255,0.1)',
           transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
           '&:hover': {
             backgroundColor: 'rgba(255,255,255,0.11)',
           },
           '&.Mui-focused': {
             backgroundColor: 'rgba(255,255,255,0.13)',
-            boxShadow: '0 0 0 3px rgba(10, 132, 255, 0.22)',
+            boxShadow:
+              '0 0 0 3px rgba(10, 132, 255, 0.22), 0 0 0 1px rgba(255,255,255,0.2), inset 0 1px 0 rgba(255,255,255,0.16)',
           },
           '&.Mui-disabled': {
             backgroundColor: 'rgba(255,255,255,0.05)',
@@ -1053,12 +1117,12 @@ export const darkTheme = createTheme({
       styleOverrides: {
         paper: {
           borderRadius: 16,
-          background: glass.dark.surfaceStrong,
-          backdropFilter: 'blur(28px) saturate(112%)',
-          WebkitBackdropFilter: 'blur(28px) saturate(112%)',
+          background: glassLayer.darkStrong,
+          backdropFilter: glass.dark.blur,
+          WebkitBackdropFilter: glass.dark.blur,
           border: `1px solid ${glass.dark.border}`,
           boxShadow: glass.dark.shadowElevated,
-          backgroundImage: 'none',
+          backgroundClip: 'padding-box',
         },
       },
     },
@@ -1067,12 +1131,12 @@ export const darkTheme = createTheme({
       styleOverrides: {
         paper: {
           borderRadius: 22,
-          background: glass.dark.surfaceStrong,
-          backdropFilter: 'blur(34px) saturate(130%)',
-          WebkitBackdropFilter: 'blur(34px) saturate(130%)',
+          background: glassLayer.darkStrong,
+          backdropFilter: glass.dark.blur,
+          WebkitBackdropFilter: glass.dark.blur,
           border: `1px solid ${glass.dark.border}`,
           boxShadow: glass.dark.shadowElevated,
-          backgroundImage: 'none',
+          backgroundClip: 'padding-box',
         },
       },
     },
@@ -1080,11 +1144,11 @@ export const darkTheme = createTheme({
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          background: glass.dark.surfaceStrong,
-          backdropFilter: 'blur(28px) saturate(130%)',
-          WebkitBackdropFilter: 'blur(28px) saturate(130%)',
+          background: glassLayer.darkStrong,
+          backdropFilter: glass.dark.blur,
+          WebkitBackdropFilter: glass.dark.blur,
           border: `1px solid ${glass.dark.borderSubtle}`,
-          backgroundImage: 'none',
+          backgroundClip: 'padding-box',
         },
       },
     },
@@ -1093,13 +1157,13 @@ export const darkTheme = createTheme({
       defaultProps: { elevation: 0 },
       styleOverrides: {
         root: {
-          background: 'rgba(28, 28, 30, 0.68)',
-          backdropFilter: 'blur(24px) saturate(112%) brightness(0.94)',
-          WebkitBackdropFilter: 'blur(24px) saturate(112%) brightness(0.94)',
+          background:
+            'linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03)), rgba(20, 22, 28, 0.56)',
+          backdropFilter: glass.dark.blur,
+          WebkitBackdropFilter: glass.dark.blur,
           borderBottom: `1px solid ${glass.dark.borderSubtle}`,
-          boxShadow: '0 1px 0 rgba(255,255,255,0.04)',
+          boxShadow: '0 1px 0 rgba(255,255,255,0.04), inset 0 -1px 0 rgba(255,255,255,0.04)',
           color: '#F2F2F7',
-          backgroundImage: 'none',
         },
       },
     },
@@ -1108,12 +1172,12 @@ export const darkTheme = createTheme({
       styleOverrides: {
         paper: {
           borderRadius: 16,
-          background: glass.dark.surfaceStrong,
-          backdropFilter: 'blur(28px) saturate(112%)',
-          WebkitBackdropFilter: 'blur(28px) saturate(112%)',
+          background: glassLayer.darkStrong,
+          backdropFilter: glass.dark.blur,
+          WebkitBackdropFilter: glass.dark.blur,
           border: `1px solid ${glass.dark.border}`,
           boxShadow: glass.dark.shadowElevated,
-          backgroundImage: 'none',
+          backgroundClip: 'padding-box',
         },
         option: {
           borderRadius: 10,
@@ -1136,7 +1200,7 @@ export const darkTheme = createTheme({
           fontWeight: 500,
           boxShadow: 'none',
           letterSpacing: '-0.01em',
-          transition: 'background-color 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease',
+          transition: 'background-color 0.18s ease, border-color 0.18s ease, opacity 0.18s ease',
           '&:hover': {
             boxShadow: 'none',
           },
@@ -1152,12 +1216,15 @@ export const darkTheme = createTheme({
         },
         contained: {
           backgroundColor: '#0A84FF',
-          backgroundImage: 'none',
-          boxShadow: '0 4px 14px rgba(10, 132, 255, 0.36)',
+          backgroundImage: 'linear-gradient(180deg, rgba(255,255,255,0.24), rgba(255,255,255,0))',
+          border: '1px solid rgba(255, 255, 255, 0.22)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.24), inset 0 -1px 0 rgba(0,0,0,0.2)',
           '&:hover': {
             backgroundColor: '#2994FF',
-            backgroundImage: 'none',
-            boxShadow: '0 6px 18px rgba(10, 132, 255, 0.44)',
+            backgroundImage:
+              'linear-gradient(180deg, rgba(255,255,255,0.26), rgba(255,255,255,0))',
+            borderColor: 'rgba(255, 255, 255, 0.3)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.22)',
           },
           '&.MuiButton-containedPrimary, &.MuiButton-colorPrimary, &.MuiButton-containedBlue, &.MuiButton-colorBlue': {
             backgroundColor: '#0A84FF',
@@ -1167,58 +1234,60 @@ export const darkTheme = createTheme({
           '&.MuiButton-containedSecondary, &.MuiButton-colorSecondary, &.MuiButton-containedPurple, &.MuiButton-colorPurple': {
             backgroundColor: '#5856D6',
             color: '#FFFFFF',
-            boxShadow: '0 4px 14px rgba(88, 86, 214, 0.36)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.24), inset 0 -1px 0 rgba(0,0,0,0.2)',
             '&:hover': {
               backgroundColor: '#6866E8',
-              boxShadow: '0 6px 18px rgba(88, 86, 214, 0.44)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.22)',
             },
           },
           '&.MuiButton-containedSuccess, &.MuiButton-colorSuccess, &.MuiButton-containedGreen, &.MuiButton-colorGreen': {
             backgroundColor: '#34C759',
             color: '#FFFFFF',
-            boxShadow: '0 4px 14px rgba(52, 199, 89, 0.34)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.24), inset 0 -1px 0 rgba(0,0,0,0.2)',
             '&:hover': {
               backgroundColor: '#42D967',
-              boxShadow: '0 6px 18px rgba(52, 199, 89, 0.42)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.22)',
             },
           },
           '&.MuiButton-containedError, &.MuiButton-colorError, &.MuiButton-containedRed, &.MuiButton-colorRed': {
             backgroundColor: '#FF3B30',
             color: '#FFFFFF',
-            boxShadow: '0 4px 14px rgba(255, 59, 48, 0.34)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.24), inset 0 -1px 0 rgba(0,0,0,0.2)',
             '&:hover': {
               backgroundColor: '#FF5148',
-              boxShadow: '0 6px 18px rgba(255, 59, 48, 0.42)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.22)',
             },
           },
           '&.MuiButton-containedWarning, &.MuiButton-colorWarning, &.MuiButton-containedOrange, &.MuiButton-colorOrange': {
             backgroundColor: '#FF9500',
             color: '#1C1C1E',
-            boxShadow: '0 4px 14px rgba(255, 149, 0, 0.34)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.18)',
             '&:hover': {
               backgroundColor: '#FFA51F',
-              boxShadow: '0 6px 18px rgba(255, 149, 0, 0.42)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.36), inset 0 -1px 0 rgba(0,0,0,0.2)',
             },
           },
           '&.MuiButton-containedGray, &.MuiButton-colorGray': {
             backgroundColor: '#8E8E93',
             color: '#FFFFFF',
-            boxShadow: '0 4px 14px rgba(142, 142, 147, 0.34)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.24), inset 0 -1px 0 rgba(0,0,0,0.2)',
             '&:hover': {
               backgroundColor: '#AEAEB2',
-              boxShadow: '0 6px 18px rgba(142, 142, 147, 0.42)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.22)',
             },
           },
         },
         outlined: {
           borderWidth: 1,
-          borderColor: 'rgba(255, 255, 255, 0.18)',
+          borderColor: 'rgba(255, 255, 255, 0.24)',
           backdropFilter: glass.dark.blur,
           WebkitBackdropFilter: glass.dark.blur,
-          backgroundColor: 'rgba(255, 255, 255, 0.08)',
+          backgroundColor: 'rgba(255, 255, 255, 0.1)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.16)',
           '&:hover': {
-            borderColor: 'rgba(255, 255, 255, 0.26)',
-            backgroundColor: 'rgba(255, 255, 255, 0.12)',
+            borderColor: 'rgba(255, 255, 255, 0.34)',
+            backgroundColor: 'rgba(255, 255, 255, 0.14)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.22)',
           },
         },
         text: {
@@ -1235,11 +1304,14 @@ export const darkTheme = createTheme({
       styleOverrides: {
         root: {
           minHeight: 44,
-          background: 'rgba(255, 255, 255, 0.14)',
+          background:
+            'linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04)), rgba(255, 255, 255, 0.1)',
+          backdropFilter: 'blur(20px) saturate(150%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(150%)',
           borderRadius: 14,
           padding: '4px',
           borderBottom: 0,
-          boxShadow: 'none',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08)',
           '&:before, &:after': {
             display: 'none',
           },
@@ -1251,10 +1323,11 @@ export const darkTheme = createTheme({
         indicator: {
           height: '100%',
           borderRadius: 10,
-          background: glass.dark.surfaceStrong,
-          backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)',
-          boxShadow: '0 1px 2px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08)',
+          background: glassLayer.darkStrong,
+          backdropFilter: 'blur(22px) saturate(150%)',
+          WebkitBackdropFilter: 'blur(22px) saturate(150%)',
+          boxShadow:
+            '0 10px 24px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.12), inset 0 -1px 0 rgba(255,255,255,0.04)',
           zIndex: 0,
         },
       },
@@ -1325,13 +1398,15 @@ export const darkTheme = createTheme({
       styleOverrides: {
         tooltip: {
           borderRadius: 10,
-          background: 'rgba(44, 44, 46, 0.88)',
-          backdropFilter: 'blur(16px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+          background:
+            'linear-gradient(180deg, rgba(76,76,84,0.58), rgba(36,38,45,0.68)), rgba(28,28,30,0.78)',
+          backdropFilter: 'blur(24px) saturate(160%)',
+          WebkitBackdropFilter: 'blur(24px) saturate(160%)',
           fontSize: '0.75rem',
           fontWeight: 500,
-          border: '1px solid rgba(255,255,255,0.12)',
-          boxShadow: '0 4px 16px rgba(0,0,0,0.45)',
+          border: '1px solid rgba(255,255,255,0.14)',
+          boxShadow:
+            '0 12px 30px rgba(0,0,0,0.48), inset 0 1px 0 rgba(255,255,255,0.1)',
         },
       },
     },
@@ -1340,9 +1415,10 @@ export const darkTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 14,
-          backdropFilter: 'blur(20px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+          backdropFilter: glass.dark.blur,
+          WebkitBackdropFilter: glass.dark.blur,
           border: '1px solid rgba(255,255,255,0.1)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1), 0 12px 30px rgba(0,0,0,0.28)',
           '&.MuiAlert-standardSuccess': {
             background: 'rgba(52, 199, 89, 0.15)',
             borderColor: 'rgba(52, 199, 89, 0.3)',
@@ -1369,8 +1445,8 @@ export const darkTheme = createTheme({
           borderRadius: 999,
           fontWeight: 500,
           fontSize: '0.75rem',
-          backdropFilter: 'blur(12px) saturate(160%)',
-          WebkitBackdropFilter: 'blur(12px) saturate(160%)',
+          backdropFilter: 'blur(18px) saturate(160%)',
+          WebkitBackdropFilter: 'blur(18px) saturate(160%)',
           '&.MuiChip-clickable.MuiChip-filled:hover': {
             backgroundColor: 'rgba(255, 255, 255, 0.14)',
           },
@@ -1401,9 +1477,10 @@ export const darkTheme = createTheme({
           },
         },
         filled: {
-          background: 'rgba(255, 255, 255, 0.1)',
+          background:
+            'linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)), rgba(255, 255, 255, 0.08)',
           border: '1px solid rgba(255,255,255,0.15)',
-          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.12), 0 2px 8px rgba(0,0,0,0.16)',
         },
         colorSuccess: {
           backgroundColor: 'rgba(52, 199, 89, 0.2)',
@@ -1442,22 +1519,41 @@ export const darkTheme = createTheme({
             transform: 'translateX(22px)',
             color: '#FFFFFF',
             '& + .MuiSwitch-track': {
-              background: 'linear-gradient(135deg, #34D058, #34C759)',
+              background:
+                'linear-gradient(180deg, rgba(255,255,255,0.24), rgba(255,255,255,0)), linear-gradient(135deg, #34D058, #30D158)',
               opacity: 1,
+              borderColor: 'rgba(52, 199, 89, 0.36)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.18)',
             },
+          },
+          '&.Mui-disabled + .MuiSwitch-track': {
+            opacity: 1,
+            background:
+              'linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)), rgba(255, 255, 255, 0.08)',
+            borderColor: 'rgba(255, 255, 255, 0.1)',
+          },
+          '&.Mui-disabled .MuiSwitch-thumb': {
+            background:
+              'linear-gradient(180deg, rgba(255,255,255,0.38), rgba(220,222,228,0.26))',
+            borderColor: 'rgba(255, 255, 255, 0.1)',
           },
         },
         thumb: {
           width: 22,
           height: 22,
-          boxShadow:
-            '0 2px 6px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2)',
+          background:
+            'linear-gradient(180deg, rgba(255,255,255,0.94), rgba(231,232,237,0.9))',
+          border: '1px solid rgba(255, 255, 255, 0.18)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.58)',
         },
         track: {
           borderRadius: 14,
-          background: 'rgba(255, 255, 255, 0.18)',
+          background:
+            'linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03)), rgba(255, 255, 255, 0.14)',
           opacity: 1,
           transition: 'background 0.25s ease, opacity 0.25s ease',
+          border: '1px solid rgba(255, 255, 255, 0.16)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08)',
         },
       },
     },

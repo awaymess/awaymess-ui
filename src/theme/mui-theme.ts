@@ -73,6 +73,24 @@ const glassLayer = {
     'linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.04)), rgba(31,33,40,0.72)',
 } as const
 
+const cardGlass = {
+  light:
+    'linear-gradient(180deg, rgba(255,255,255,0.72), rgba(245,245,245,0.58)), rgba(245,245,245,0.67)',
+  dark:
+    'linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)), rgba(20,20,20,0.72)',
+} as const
+
+const cardShadow = {
+  light:
+    '0 17px 45px rgba(0, 0, 0, 0.16), 0 8px 40px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255,255,255,0.34)',
+  lightElevated:
+    '0 17px 45px rgba(0, 0, 0, 0.2), 0 8px 40px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255,255,255,0.38)',
+  dark:
+    '0 17px 45px rgba(0, 0, 0, 0.5), 0 8px 40px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255,255,255,0.08)',
+  darkElevated:
+    '0 17px 45px rgba(0, 0, 0, 0.56), 0 8px 40px rgba(0, 0, 0, 0.16), 0 0 1px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255,255,255,0.1)',
+} as const
+
 // ─── Shared base theme options ────────────────────────────────────────────────
 
 const themeOptions: ThemeOptions = {
@@ -318,13 +336,14 @@ const themeOptions: ThemeOptions = {
       defaultProps: { elevation: 0 },
       styleOverrides: {
         root: {
-          borderRadius: 18,
-          background: glassLayer.light,
-          backdropFilter: glass.light.blur,
-          WebkitBackdropFilter: glass.light.blur,
-          border: `1px solid ${glass.light.border}`,
-          boxShadow: glass.light.shadow,
+          borderRadius: 26,
+          background: cardGlass.light,
+          backdropFilter: 'blur(30px) saturate(170%) brightness(1.04)',
+          WebkitBackdropFilter: 'blur(30px) saturate(170%) brightness(1.04)',
+          border: '1px solid rgba(255, 255, 255, 0.42)',
+          boxShadow: cardShadow.light,
           backgroundClip: 'padding-box',
+          overflow: 'hidden',
         },
       },
     },
@@ -333,15 +352,15 @@ const themeOptions: ThemeOptions = {
     MuiPaper: {
       styleOverrides: {
         root: {
-          background: glassLayer.light,
-          backdropFilter: glass.light.blur,
-          WebkitBackdropFilter: glass.light.blur,
-          border: `1px solid ${glass.light.border}`,
+          background: cardGlass.light,
+          backdropFilter: 'blur(30px) saturate(170%) brightness(1.04)',
+          WebkitBackdropFilter: 'blur(30px) saturate(170%) brightness(1.04)',
+          border: '1px solid rgba(255, 255, 255, 0.42)',
           backgroundClip: 'padding-box',
         },
         elevation0: { boxShadow: 'none' },
-        elevation1: { boxShadow: glass.light.shadow },
-        elevation2: { boxShadow: glass.light.shadowElevated },
+        elevation1: { boxShadow: cardShadow.light },
+        elevation2: { boxShadow: cardShadow.lightElevated },
       },
     },
 
@@ -562,13 +581,14 @@ const themeOptions: ThemeOptions = {
     MuiDialog: {
       styleOverrides: {
         paper: {
-          borderRadius: 22,
-          background: glassLayer.lightStrong,
-          backdropFilter: glass.light.blur,
-          WebkitBackdropFilter: glass.light.blur,
-          border: `1px solid ${glass.light.border}`,
-          boxShadow: glass.light.shadowElevated,
+          borderRadius: 26,
+          background: cardGlass.light,
+          backdropFilter: 'blur(30px) saturate(170%) brightness(1.04)',
+          WebkitBackdropFilter: 'blur(30px) saturate(170%) brightness(1.04)',
+          border: '1px solid rgba(255, 255, 255, 0.42)',
+          boxShadow: cardShadow.lightElevated,
           backgroundClip: 'padding-box',
+          overflow: 'hidden',
         },
       },
     },
@@ -976,13 +996,14 @@ export const darkTheme = createTheme({
       defaultProps: { elevation: 0 },
       styleOverrides: {
         root: {
-          borderRadius: 18,
-          background: glassLayer.dark,
-          backdropFilter: glass.dark.blur,
-          WebkitBackdropFilter: glass.dark.blur,
-          border: `1px solid ${glass.dark.border}`,
-          boxShadow: glass.dark.shadow,
+          borderRadius: 26,
+          background: cardGlass.dark,
+          backdropFilter: 'blur(30px) saturate(150%) brightness(0.92)',
+          WebkitBackdropFilter: 'blur(30px) saturate(150%) brightness(0.92)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          boxShadow: cardShadow.dark,
           backgroundClip: 'padding-box',
+          overflow: 'hidden',
         },
       },
     },
@@ -990,15 +1011,15 @@ export const darkTheme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          background: glassLayer.dark,
-          backdropFilter: glass.dark.blur,
-          WebkitBackdropFilter: glass.dark.blur,
-          border: `1px solid ${glass.dark.border}`,
+          background: cardGlass.dark,
+          backdropFilter: 'blur(30px) saturate(150%) brightness(0.92)',
+          WebkitBackdropFilter: 'blur(30px) saturate(150%) brightness(0.92)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
           backgroundClip: 'padding-box',
         },
         elevation0: { boxShadow: 'none' },
-        elevation1: { boxShadow: glass.dark.shadow },
-        elevation2: { boxShadow: glass.dark.shadowElevated },
+        elevation1: { boxShadow: cardShadow.dark },
+        elevation2: { boxShadow: cardShadow.darkElevated },
       },
     },
 
@@ -1130,13 +1151,14 @@ export const darkTheme = createTheme({
     MuiDialog: {
       styleOverrides: {
         paper: {
-          borderRadius: 22,
-          background: glassLayer.darkStrong,
-          backdropFilter: glass.dark.blur,
-          WebkitBackdropFilter: glass.dark.blur,
-          border: `1px solid ${glass.dark.border}`,
-          boxShadow: glass.dark.shadowElevated,
+          borderRadius: 26,
+          background: cardGlass.dark,
+          backdropFilter: 'blur(30px) saturate(150%) brightness(0.92)',
+          WebkitBackdropFilter: 'blur(30px) saturate(150%) brightness(0.92)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          boxShadow: cardShadow.darkElevated,
           backgroundClip: 'padding-box',
+          overflow: 'hidden',
         },
       },
     },

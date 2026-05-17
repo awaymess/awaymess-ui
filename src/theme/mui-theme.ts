@@ -73,22 +73,27 @@ const glassLayer = {
     'linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.04)), rgba(31,33,40,0.72)',
 } as const
 
-const cardGlass = {
-  light:
-    'linear-gradient(180deg, rgba(255,255,255,0.72), rgba(245,245,245,0.58)), rgba(245,245,245,0.67)',
-  dark:
-    'linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)), rgba(20,20,20,0.72)',
-} as const
-
-const cardShadow = {
-  light:
-    '0 17px 45px rgba(0, 0, 0, 0.16), 0 8px 40px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255,255,255,0.34)',
-  lightElevated:
-    '0 17px 45px rgba(0, 0, 0, 0.2), 0 8px 40px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255,255,255,0.38)',
-  dark:
-    '0 17px 45px rgba(0, 0, 0, 0.5), 0 8px 40px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255,255,255,0.08)',
-  darkElevated:
-    '0 17px 45px rgba(0, 0, 0, 0.56), 0 8px 40px rgba(0, 0, 0, 0.16), 0 0 1px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255,255,255,0.1)',
+const cardFrame = {
+  light: {
+    background:
+      'linear-gradient(180deg, rgba(255,255,255,0.72), rgba(245,245,245,0.58)) padding-box, linear-gradient(rgba(245,245,245,0.67), rgba(245,245,245,0.67)) padding-box, linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(203,213,225,0.48) 28%, rgba(100,116,139,0.32) 58%, rgba(255,255,255,0.58) 100%) border-box',
+    shadow:
+      '0 3px 9px rgba(15, 23, 42, 0.01), inset 0 1px 0 rgba(255, 255, 255, 0.56), inset 0 -1px 0 rgba(15, 23, 42, 0.04)',
+    shadowElevated:
+      '0 4px 10px rgba(15, 23, 42, 0.012), inset 0 1px 0 rgba(255, 255, 255, 0.58), inset 0 -1px 0 rgba(15, 23, 42, 0.045)',
+    innerRing:
+      'inset 0 0 0 1px rgba(255, 255, 255, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.5)',
+  },
+  dark: {
+    background:
+      'linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)) padding-box, linear-gradient(rgba(20,20,20,0.72), rgba(20,20,20,0.72)) padding-box, linear-gradient(145deg, rgba(255,255,255,0.42) 0%, rgba(148,163,184,0.22) 34%, rgba(255,255,255,0.08) 58%, rgba(255,255,255,0.28) 100%) border-box',
+    shadow:
+      '0 3px 8px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 -1px 0 rgba(0, 0, 0, 0.16)',
+    shadowElevated:
+      '0 4px 10px rgba(0, 0, 0, 0.045), inset 0 1px 0 rgba(255, 255, 255, 0.13), inset 0 -1px 0 rgba(0, 0, 0, 0.18)',
+    innerRing:
+      'inset 0 0 0 1px rgba(255, 255, 255, 0.09), inset 0 1px 0 rgba(255, 255, 255, 0.16)',
+  },
 } as const
 
 // ─── Shared base theme options ────────────────────────────────────────────────
@@ -337,13 +342,22 @@ const themeOptions: ThemeOptions = {
       styleOverrides: {
         root: {
           borderRadius: 26,
-          background: cardGlass.light,
-          backdropFilter: 'blur(30px) saturate(170%) brightness(1.04)',
-          WebkitBackdropFilter: 'blur(30px) saturate(170%) brightness(1.04)',
-          border: '1px solid rgba(255, 255, 255, 0.42)',
-          boxShadow: cardShadow.light,
+          position: 'relative',
+          background: cardFrame.light.background,
+          backdropFilter: 'blur(18px) saturate(150%)',
+          WebkitBackdropFilter: 'blur(18px) saturate(150%)',
+          border: '1px solid transparent',
+          boxShadow: cardFrame.light.shadow,
           backgroundClip: 'padding-box',
           overflow: 'hidden',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            inset: 0,
+            borderRadius: 'inherit',
+            pointerEvents: 'none',
+            boxShadow: cardFrame.light.innerRing,
+          },
         },
       },
     },
@@ -352,15 +366,24 @@ const themeOptions: ThemeOptions = {
     MuiPaper: {
       styleOverrides: {
         root: {
-          background: cardGlass.light,
-          backdropFilter: 'blur(30px) saturate(170%) brightness(1.04)',
-          WebkitBackdropFilter: 'blur(30px) saturate(170%) brightness(1.04)',
-          border: '1px solid rgba(255, 255, 255, 0.42)',
+          position: 'relative',
+          background: cardFrame.light.background,
+          backdropFilter: 'blur(18px) saturate(150%)',
+          WebkitBackdropFilter: 'blur(18px) saturate(150%)',
+          border: '1px solid transparent',
           backgroundClip: 'padding-box',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            inset: 0,
+            borderRadius: 'inherit',
+            pointerEvents: 'none',
+            boxShadow: cardFrame.light.innerRing,
+          },
         },
         elevation0: { boxShadow: 'none' },
-        elevation1: { boxShadow: cardShadow.light },
-        elevation2: { boxShadow: cardShadow.lightElevated },
+        elevation1: { boxShadow: cardFrame.light.shadow },
+        elevation2: { boxShadow: cardFrame.light.shadowElevated },
       },
     },
 
@@ -582,13 +605,22 @@ const themeOptions: ThemeOptions = {
       styleOverrides: {
         paper: {
           borderRadius: 26,
-          background: cardGlass.light,
-          backdropFilter: 'blur(30px) saturate(170%) brightness(1.04)',
-          WebkitBackdropFilter: 'blur(30px) saturate(170%) brightness(1.04)',
-          border: '1px solid rgba(255, 255, 255, 0.42)',
-          boxShadow: cardShadow.lightElevated,
+          position: 'relative',
+          background: cardFrame.light.background,
+          backdropFilter: 'blur(18px) saturate(150%)',
+          WebkitBackdropFilter: 'blur(18px) saturate(150%)',
+          border: '1px solid transparent',
+          boxShadow: cardFrame.light.shadowElevated,
           backgroundClip: 'padding-box',
           overflow: 'hidden',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            inset: 0,
+            borderRadius: 'inherit',
+            pointerEvents: 'none',
+            boxShadow: cardFrame.light.innerRing,
+          },
         },
       },
     },
@@ -997,13 +1029,22 @@ export const darkTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 26,
-          background: cardGlass.dark,
-          backdropFilter: 'blur(30px) saturate(150%) brightness(0.92)',
-          WebkitBackdropFilter: 'blur(30px) saturate(150%) brightness(0.92)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          boxShadow: cardShadow.dark,
+          position: 'relative',
+          background: cardFrame.dark.background,
+          backdropFilter: 'blur(18px) saturate(140%)',
+          WebkitBackdropFilter: 'blur(18px) saturate(140%)',
+          border: '1px solid transparent',
+          boxShadow: cardFrame.dark.shadow,
           backgroundClip: 'padding-box',
           overflow: 'hidden',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            inset: 0,
+            borderRadius: 'inherit',
+            pointerEvents: 'none',
+            boxShadow: cardFrame.dark.innerRing,
+          },
         },
       },
     },
@@ -1011,15 +1052,24 @@ export const darkTheme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          background: cardGlass.dark,
-          backdropFilter: 'blur(30px) saturate(150%) brightness(0.92)',
-          WebkitBackdropFilter: 'blur(30px) saturate(150%) brightness(0.92)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
+          position: 'relative',
+          background: cardFrame.dark.background,
+          backdropFilter: 'blur(18px) saturate(140%)',
+          WebkitBackdropFilter: 'blur(18px) saturate(140%)',
+          border: '1px solid transparent',
           backgroundClip: 'padding-box',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            inset: 0,
+            borderRadius: 'inherit',
+            pointerEvents: 'none',
+            boxShadow: cardFrame.dark.innerRing,
+          },
         },
         elevation0: { boxShadow: 'none' },
-        elevation1: { boxShadow: cardShadow.dark },
-        elevation2: { boxShadow: cardShadow.darkElevated },
+        elevation1: { boxShadow: cardFrame.dark.shadow },
+        elevation2: { boxShadow: cardFrame.dark.shadowElevated },
       },
     },
 
@@ -1152,13 +1202,22 @@ export const darkTheme = createTheme({
       styleOverrides: {
         paper: {
           borderRadius: 26,
-          background: cardGlass.dark,
-          backdropFilter: 'blur(30px) saturate(150%) brightness(0.92)',
-          WebkitBackdropFilter: 'blur(30px) saturate(150%) brightness(0.92)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          boxShadow: cardShadow.darkElevated,
+          position: 'relative',
+          background: cardFrame.dark.background,
+          backdropFilter: 'blur(18px) saturate(140%)',
+          WebkitBackdropFilter: 'blur(18px) saturate(140%)',
+          border: '1px solid transparent',
+          boxShadow: cardFrame.dark.shadowElevated,
           backgroundClip: 'padding-box',
           overflow: 'hidden',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            inset: 0,
+            borderRadius: 'inherit',
+            pointerEvents: 'none',
+            boxShadow: cardFrame.dark.innerRing,
+          },
         },
       },
     },

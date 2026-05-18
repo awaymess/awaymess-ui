@@ -76,23 +76,23 @@ const glassLayer = {
 const cardFrame = {
   light: {
     background:
-      'linear-gradient(180deg, rgba(255,255,255,0.72), rgba(245,245,245,0.58)) padding-box, linear-gradient(rgba(245,245,245,0.67), rgba(245,245,245,0.67)) padding-box, linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(203,213,225,0.48) 28%, rgba(100,116,139,0.32) 58%, rgba(255,255,255,0.58) 100%) border-box',
+     "rgba(255,255,255,0.8)",
     shadow:
-      '0 3px 9px rgba(15, 23, 42, 0.01), inset 0 1px 0 rgba(255, 255, 255, 0.56), inset 0 -1px 0 rgba(15, 23, 42, 0.04)',
+      '0 28px 70px rgba(0, 0, 0, 0.28), 0 10px 28px rgba(0, 0, 0, 0.14), 0 0 1px rgba(0, 0, 0, 0.18)',
     shadowElevated:
-      '0 4px 10px rgba(15, 23, 42, 0.012), inset 0 1px 0 rgba(255, 255, 255, 0.58), inset 0 -1px 0 rgba(15, 23, 42, 0.045)',
+      '0 30px 76px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.18)',
     innerRing:
-      'inset 0 0 0 1px rgba(255, 255, 255, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.5)',
+      'inset 0 1px 0 rgba(255, 255, 255, 0.95), inset 0 0 0 1px rgba(255, 255, 255, 0.36)',
   },
   dark: {
     background:
-      'linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)) padding-box, linear-gradient(rgba(20,20,20,0.72), rgba(20,20,20,0.72)) padding-box, linear-gradient(145deg, rgba(255,255,255,0.42) 0%, rgba(148,163,184,0.22) 34%, rgba(255,255,255,0.08) 58%, rgba(255,255,255,0.28) 100%) border-box',
+      'rgba(0, 0, 0, 0.7)',
     shadow:
-      '0 3px 8px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 -1px 0 rgba(0, 0, 0, 0.16)',
+      '0 34px 86px rgba(0, 0, 0, 0.78), 0 12px 34px rgba(0, 0, 0, 0.42), 0 0 1px rgba(255, 255, 255, 0.12)',
     shadowElevated:
-      '0 4px 10px rgba(0, 0, 0, 0.045), inset 0 1px 0 rgba(255, 255, 255, 0.13), inset 0 -1px 0 rgba(0, 0, 0, 0.18)',
+      '0 38px 96px rgba(0, 0, 0, 0.82), 0 14px 38px rgba(0, 0, 0, 0.46), 0 0 1px rgba(255, 255, 255, 0.12)',
     innerRing:
-      'inset 0 0 0 1px rgba(255, 255, 255, 0.09), inset 0 1px 0 rgba(255, 255, 255, 0.16)',
+      'inset 0 1px 0 rgba(255, 255, 255, 0.14), inset 0 0 0 1px rgba(255, 255, 255, 0.045), inset 0 -1px 0 rgba(0, 0, 0, 0.36)',
   },
 } as const
 

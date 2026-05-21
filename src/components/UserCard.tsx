@@ -1,6 +1,5 @@
 import React from 'react';
-import { CardContent, Typography, Avatar, Box, CardProps, styled } from '@mui/material';
-import { GlassCard } from './GlassCard';
+import { CardContent, Typography, Avatar, Box, CardProps, styled, Card } from '@mui/material';
 
 export interface UserCardProps extends CardProps {
   name: string;
@@ -25,7 +24,7 @@ const UserCardContainer = styled(Box)({
 
 export const UserCard: React.FC<UserCardProps> = ({ name, role, avatarUrl, sx, ...props }) => {
   return (
-    <GlassCard sx={{ maxWidth: 280, ...sx }} {...props}>
+    <Card sx={{ maxWidth: 280, ...sx }} {...props}>
       <CardContent>
         <UserCardContainer>
           <StyledAvatar src={avatarUrl} alt={name} />
@@ -39,6 +38,6 @@ export const UserCard: React.FC<UserCardProps> = ({ name, role, avatarUrl, sx, .
           )}
         </UserCardContainer>
       </CardContent>
-    </GlassCard>
+    </Card>
   );
 };

@@ -13,8 +13,8 @@ import {
   Switch,
   Stack,
   SelectChangeEvent,
+  Card,
 } from '@mui/material';
-import { GlassCard } from './GlassCard';
 
 export const ExampleForm: React.FC = () => {
   const [role, setRole] = useState('');
@@ -22,7 +22,7 @@ export const ExampleForm: React.FC = () => {
   const [terms, setTerms] = useState(false);
 
   const handleRoleChange = (event: SelectChangeEvent) => {
-    setRole(event.target.value as string);
+    setRole(event.target.value);
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -31,7 +31,7 @@ export const ExampleForm: React.FC = () => {
   };
 
   return (
-    <GlassCard sx={{ p: 4, maxWidth: 500, mx: 'auto', mt: 4 }}>
+    <Card sx={{ p: 4, maxWidth: 500, mx: 'auto', mt: 4 }}>
       <Typography variant="h4" gutterBottom>
         Registration
       </Typography>
@@ -110,6 +110,6 @@ export const ExampleForm: React.FC = () => {
           </Box>
         </Stack>
       </Box>
-    </GlassCard>
+    </Card>
   );
 };

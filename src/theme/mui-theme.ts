@@ -304,12 +304,14 @@ const themeOptions: ThemeOptions = {
       defaultProps: { elevation: 0 },
       styleOverrides: {
         root: {
-          borderRadius: 18,
+          borderRadius: 26,
           background: glass.light.surface,
           backdropFilter: glass.light.blur,
           WebkitBackdropFilter: glass.light.blur,
           border: `1px solid ${glass.light.border}`,
           boxShadow: glass.light.shadow,
+          transition: 'border-color 0.2s ease-in-out',
+          padding: '24px',
           backgroundImage: 'none',
         },
       },
@@ -403,7 +405,7 @@ const themeOptions: ThemeOptions = {
       styleOverrides: {
         root: {
           '& .MuiOutlinedInput-root': {
-            borderRadius: 12,
+            borderRadius: 16,
             background: 'rgba(255,255,255,0.6)',
             backdropFilter: 'blur(16px) saturate(145%)',
             WebkitBackdropFilter: 'blur(16px) saturate(145%)',
@@ -439,7 +441,7 @@ const themeOptions: ThemeOptions = {
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          borderRadius: 12,
+          borderRadius: 16,
           background: 'rgba(255,255,255,0.6)',
           backdropFilter: 'blur(16px) saturate(145%)',
           WebkitBackdropFilter: 'blur(16px) saturate(145%)',
@@ -467,7 +469,7 @@ const themeOptions: ThemeOptions = {
       defaultProps: { disableUnderline: true },
       styleOverrides: {
         root: {
-          borderRadius: 12,
+          borderRadius: 16,
           overflow: 'hidden',
           backgroundColor: 'rgba(229, 231, 235, 0.82)',
           transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
@@ -650,7 +652,7 @@ const themeOptions: ThemeOptions = {
         root: {
           minHeight: 44,
           background: 'rgba(120, 120, 128, 0.16)',
-          borderRadius: 14,
+          borderRadius: 16,
           padding: '4px',
           borderBottom: 0,
           boxShadow: 'none',
@@ -664,7 +666,7 @@ const themeOptions: ThemeOptions = {
         },
         indicator: {
           height: '100%',
-          borderRadius: 10,
+          borderRadius: 12,
           background: glass.light.surfaceStrong,
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
@@ -680,7 +682,7 @@ const themeOptions: ThemeOptions = {
           minHeight: 36,
           textTransform: 'none',
           fontWeight: 500,
-          borderRadius: 10,
+          borderRadius: 12,
           paddingInline: 16,
           zIndex: 1,
           transition: 'color 0.2s ease',
@@ -825,7 +827,7 @@ const themeOptions: ThemeOptions = {
     MuiTooltip: {
       styleOverrides: {
         tooltip: {
-          borderRadius: 10,
+          borderRadius: 16,
           background: 'rgba(28, 28, 30, 0.82)',
           backdropFilter: 'blur(16px) saturate(180%)',
           WebkitBackdropFilter: 'blur(16px) saturate(180%)',
@@ -841,7 +843,7 @@ const themeOptions: ThemeOptions = {
     MuiAlert: {
       styleOverrides: {
         root: {
-          borderRadius: 14,
+          borderRadius: 16,
           backdropFilter: 'blur(20px) saturate(180%)',
           WebkitBackdropFilter: 'blur(20px) saturate(180%)',
           border: '1px solid rgba(255,255,255,0.4)',
@@ -926,12 +928,14 @@ export const darkTheme = createTheme({
       defaultProps: { elevation: 0 },
       styleOverrides: {
         root: {
-          borderRadius: 18,
+          borderRadius: 26,
           background: glass.dark.surface,
           backdropFilter: glass.dark.blur,
           WebkitBackdropFilter: glass.dark.blur,
           border: `1px solid ${glass.dark.border}`,
           boxShadow: glass.dark.shadow,
+          transition: 'border-color 0.2s ease-in-out',
+          padding: '24px',
           backgroundImage: 'none',
         },
       },
@@ -956,7 +960,7 @@ export const darkTheme = createTheme({
       styleOverrides: {
         root: {
           '& .MuiOutlinedInput-root': {
-            borderRadius: 12,
+            borderRadius: 16,
             background: 'rgba(255,255,255,0.07)',
             backdropFilter: 'blur(16px) saturate(130%)',
             WebkitBackdropFilter: 'blur(16px) saturate(130%)',
@@ -997,7 +1001,7 @@ export const darkTheme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          borderRadius: 12,
+          borderRadius: 16,
           background: 'rgba(255,255,255,0.07)',
           backdropFilter: 'blur(16px) saturate(130%)',
           WebkitBackdropFilter: 'blur(16px) saturate(130%)',
@@ -1025,7 +1029,7 @@ export const darkTheme = createTheme({
       defaultProps: { disableUnderline: true },
       styleOverrides: {
         root: {
-          borderRadius: 12,
+          borderRadius: 16,
           overflow: 'hidden',
           backgroundColor: 'rgba(255,255,255,0.08)',
           transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
@@ -1069,7 +1073,7 @@ export const darkTheme = createTheme({
     MuiDialog: {
       styleOverrides: {
         paper: {
-          borderRadius: 22,
+          borderRadius: 26,
           background: glass.dark.surfaceStrong,
           backdropFilter: 'blur(34px) saturate(130%)',
           WebkitBackdropFilter: 'blur(34px) saturate(130%)',
@@ -1241,7 +1245,7 @@ export const darkTheme = createTheme({
         root: {
           minHeight: 44,
           background: 'rgba(255, 255, 255, 0.14)',
-          borderRadius: 14,
+          borderRadius: 16,
           padding: '4px',
           borderBottom: 0,
           boxShadow: 'none',
@@ -1255,7 +1259,7 @@ export const darkTheme = createTheme({
         },
         indicator: {
           height: '100%',
-          borderRadius: 10,
+          borderRadius: 12,
           background: glass.dark.surfaceStrong,
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
@@ -1268,7 +1272,7 @@ export const darkTheme = createTheme({
     MuiMenuItem: {
       styleOverrides: {
         root: {
-          borderRadius: 10,
+          borderRadius: 16,
           marginInline: 6,
           transition: 'background 0.15s ease',
           '&:hover': {
@@ -1329,7 +1333,7 @@ export const darkTheme = createTheme({
     MuiTooltip: {
       styleOverrides: {
         tooltip: {
-          borderRadius: 10,
+          borderRadius: 16,
           background: 'rgba(44, 44, 46, 0.88)',
           backdropFilter: 'blur(16px) saturate(180%)',
           WebkitBackdropFilter: 'blur(16px) saturate(180%)',
@@ -1344,7 +1348,7 @@ export const darkTheme = createTheme({
     MuiAlert: {
       styleOverrides: {
         root: {
-          borderRadius: 14,
+          borderRadius: 16,
           backdropFilter: 'blur(20px) saturate(180%)',
           WebkitBackdropFilter: 'blur(20px) saturate(180%)',
           border: '1px solid rgba(255,255,255,0.1)',

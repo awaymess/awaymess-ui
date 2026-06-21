@@ -1,6 +1,15 @@
 export * from './GlassCard';
 export * from './UserCard';
 export * from './ExampleForm';
+export * from './NumberInput';
+export { NumericFormat, PatternFormat } from 'react-number-format';
+export type {
+  NumberFormatValues,
+  NumericFormatProps,
+  OnValueChange,
+  PatternFormatProps,
+  SourceInfo,
+} from 'react-number-format';
 
 // Re-export MUI components that are styled in your theme
 // This allows users to import them directly from your library instead of @mui/material

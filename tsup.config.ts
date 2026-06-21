@@ -12,6 +12,7 @@ export default defineConfig({
     '@emotion/styled',
     '@mui/x-date-pickers',
     '@mui/icons-material',
+    'react-number-format',
   ],
   esbuildOptions(options) {
     options.banner = {

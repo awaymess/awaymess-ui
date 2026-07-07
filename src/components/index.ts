@@ -110,4 +110,5 @@ export type {
 } from '@mui/material';
 
 // Re-export pickers if needed
-export { DatePicker } from '@mui/x-date-pickers';
+// export { DatePicker } from '@mui/x-date-pickers';
+export * from './ModernDateIcons';

@@ -1,5 +1,7 @@
 import { createTheme, ThemeOptions } from '@mui/material/styles'
+import type {} from '@mui/x-date-pickers/themeAugmentation'
 import { createElement } from 'react'
+import { ModernCalendarIcon, ModernClockIcon } from '../components/ModernDateIcons'
 
 declare module '@mui/material/styles' {
   interface Palette {
@@ -400,31 +402,44 @@ const themeOptions: ThemeOptions = {
       },
     },
 
-    // ── TextField / OutlinedInput ────────────────────────────────────────────
+    // ── TextField / OutlinedInput / Pickers ──────────────────────────────────
     MuiTextField: {
       styleOverrides: {
         root: {
-          '& .MuiOutlinedInput-root': {
+          '& .MuiOutlinedInput-root, & .MuiPickersOutlinedInput-root': {
             borderRadius: 16,
             background: 'rgba(255,255,255,0.6)',
             backdropFilter: 'blur(16px) saturate(145%)',
             WebkitBackdropFilter: 'blur(16px) saturate(145%)',
             transition: 'box-shadow 0.2s ease, background 0.2s ease',
-            '& fieldset': {
+            '& fieldset, & .MuiOutlinedInput-notchedOutline, & .MuiPickersOutlinedInput-notchedOutline': {
               borderColor: 'rgba(60, 60, 67, 0.2)',
               borderWidth: 1,
               transition: 'border-color 0.2s ease',
             },
-            '&:hover fieldset': {
+            '&:hover fieldset, &:hover .MuiOutlinedInput-notchedOutline, &:hover .MuiPickersOutlinedInput-notchedOutline': {
               borderColor: 'rgba(60, 60, 67, 0.3)',
             },
             '&.Mui-focused': {
               background: 'rgba(255,255,255,0.75)',
               boxShadow: '0 0 0 3px rgba(10, 132, 255, 0.16)',
             },
-            '&.Mui-focused fieldset': {
+            '&.Mui-focused fieldset, &.Mui-focused .MuiOutlinedInput-notchedOutline, &.Mui-focused .MuiPickersOutlinedInput-notchedOutline': {
               borderColor: '#0A84FF',
               borderWidth: 1.5,
+            },
+            '&.Mui-focused .MuiIconButton-root, &.Mui-focused .MuiSvgIcon-root': {
+              color: '#0A84FF',
+            },
+            '&.Mui-disabled': {
+              background: 'rgba(229, 231, 235, 0.5)',
+              color: 'rgba(60, 60, 67, 0.36)',
+              '& fieldset, & .MuiOutlinedInput-notchedOutline, & .MuiPickersOutlinedInput-notchedOutline': {
+                borderColor: 'rgba(60, 60, 67, 0.12)',
+              },
+              '& input, & span, & .MuiPickersSectionList-sectionContent': {
+                color: 'rgba(60, 60, 67, 0.36)',
+              },
             },
           },
           '& input[type="date"]': {
@@ -446,16 +461,29 @@ const themeOptions: ThemeOptions = {
           backdropFilter: 'blur(16px) saturate(145%)',
           WebkitBackdropFilter: 'blur(16px) saturate(145%)',
           transition: 'box-shadow 0.2s ease, background 0.2s ease',
-          '&:hover .MuiOutlinedInput-notchedOutline': {
+          '&:hover .MuiOutlinedInput-notchedOutline, &:hover .MuiPickersOutlinedInput-notchedOutline, &:hover fieldset': {
             borderColor: 'rgba(60, 60, 67, 0.3)',
           },
           '&.Mui-focused': {
             background: 'rgba(255,255,255,0.75)',
             boxShadow: '0 0 0 3px rgba(10, 132, 255, 0.16)',
           },
-          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline, &.Mui-focused .MuiPickersOutlinedInput-notchedOutline, &.Mui-focused fieldset': {
             borderColor: '#0A84FF',
             borderWidth: 1.5,
+          },
+          '&.Mui-focused .MuiIconButton-root, &.Mui-focused .MuiSvgIcon-root': {
+            color: '#0A84FF',
+          },
+          '&.Mui-disabled': {
+            background: 'rgba(229, 231, 235, 0.5)',
+            color: 'rgba(60, 60, 67, 0.36)',
+            '& .MuiOutlinedInput-notchedOutline, & .MuiPickersOutlinedInput-notchedOutline, & fieldset': {
+              borderColor: 'rgba(60, 60, 67, 0.12)',
+            },
+            '& input, & span, & .MuiPickersSectionList-sectionContent': {
+              color: 'rgba(60, 60, 67, 0.36)',
+            },
           },
         },
         notchedOutline: {
@@ -464,6 +492,100 @@ const themeOptions: ThemeOptions = {
         },
       },
     },
+
+    MuiPickersTextField: {
+      styleOverrides: {
+        root: {
+          '& .MuiOutlinedInput-root, & .MuiPickersOutlinedInput-root': {
+            borderRadius: 16,
+            background: 'rgba(255,255,255,0.6)',
+            backdropFilter: 'blur(16px) saturate(145%)',
+            WebkitBackdropFilter: 'blur(16px) saturate(145%)',
+            transition: 'box-shadow 0.2s ease, background 0.2s ease',
+            '& fieldset, & .MuiOutlinedInput-notchedOutline, & .MuiPickersOutlinedInput-notchedOutline': {
+              borderColor: 'rgba(60, 60, 67, 0.2)',
+              borderWidth: 1,
+              transition: 'border-color 0.2s ease',
+            },
+            '&:hover fieldset, &:hover .MuiOutlinedInput-notchedOutline, &:hover .MuiPickersOutlinedInput-notchedOutline': {
+              borderColor: 'rgba(60, 60, 67, 0.3)',
+            },
+            '&.Mui-focused': {
+              background: 'rgba(255,255,255,0.75)',
+              boxShadow: '0 0 0 3px rgba(10, 132, 255, 0.16)',
+            },
+            '&.Mui-focused fieldset, &.Mui-focused .MuiOutlinedInput-notchedOutline, &.Mui-focused .MuiPickersOutlinedInput-notchedOutline': {
+              borderColor: '#0A84FF',
+              borderWidth: 1.5,
+            },
+            '&.Mui-focused .MuiIconButton-root, &.Mui-focused .MuiSvgIcon-root': {
+              color: '#0A84FF',
+            },
+            '&.Mui-disabled': {
+              background: 'rgba(229, 231, 235, 0.5)',
+              color: 'rgba(60, 60, 67, 0.36)',
+              '& fieldset, & .MuiOutlinedInput-notchedOutline, & .MuiPickersOutlinedInput-notchedOutline': {
+                borderColor: 'rgba(60, 60, 67, 0.12)',
+              },
+              '& input, & span, & .MuiPickersSectionList-sectionContent': {
+                color: 'rgba(60, 60, 67, 0.36)',
+              },
+            },
+          },
+        },
+      },
+    },
+
+    MuiPickersOutlinedInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: 16,
+          background: 'rgba(255,255,255,0.6)',
+          backdropFilter: 'blur(16px) saturate(145%)',
+          WebkitBackdropFilter: 'blur(16px) saturate(145%)',
+          transition: 'box-shadow 0.2s ease, background 0.2s ease',
+          '&:hover .MuiOutlinedInput-notchedOutline, &:hover .MuiPickersOutlinedInput-notchedOutline, &:hover fieldset': {
+            borderColor: 'rgba(60, 60, 67, 0.3)',
+          },
+          '&.Mui-focused': {
+            background: 'rgba(255,255,255,0.75)',
+            boxShadow: '0 0 0 3px rgba(10, 132, 255, 0.16)',
+          },
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline, &.Mui-focused .MuiPickersOutlinedInput-notchedOutline, &.Mui-focused fieldset': {
+            borderColor: '#0A84FF',
+            borderWidth: 1.5,
+          },
+          '&.Mui-focused .MuiIconButton-root, &.Mui-focused .MuiSvgIcon-root': {
+            color: '#0A84FF',
+          },
+          '&.Mui-disabled': {
+            background: 'rgba(229, 231, 235, 0.5)',
+            color: 'rgba(60, 60, 67, 0.36)',
+            '& .MuiOutlinedInput-notchedOutline, & .MuiPickersOutlinedInput-notchedOutline, & fieldset': {
+              borderColor: 'rgba(60, 60, 67, 0.12)',
+            },
+            '& input, & span, & .MuiPickersSectionList-sectionContent': {
+              color: 'rgba(60, 60, 67, 0.36)',
+            },
+          },
+        },
+        notchedOutline: {
+          borderColor: 'rgba(60, 60, 67, 0.2)',
+          transition: 'border-color 0.2s ease',
+        },
+      },
+    },
+
+    MuiDatePicker: { defaultProps: { slots: { openPickerIcon: ModernCalendarIcon } } },
+    MuiDesktopDatePicker: { defaultProps: { slots: { openPickerIcon: ModernCalendarIcon } } },
+    MuiMobileDatePicker: { defaultProps: { slots: { openPickerIcon: ModernCalendarIcon } } },
+    MuiDateTimePicker: { defaultProps: { slots: { openPickerIcon: ModernCalendarIcon } } },
+    MuiDesktopDateTimePicker: { defaultProps: { slots: { openPickerIcon: ModernCalendarIcon } } },
+    MuiMobileDateTimePicker: { defaultProps: { slots: { openPickerIcon: ModernCalendarIcon } } },
+    MuiTimePicker: { defaultProps: { slots: { openPickerIcon: ModernClockIcon } } },
+    MuiDesktopTimePicker: { defaultProps: { slots: { openPickerIcon: ModernClockIcon } } },
+    MuiMobileTimePicker: { defaultProps: { slots: { openPickerIcon: ModernClockIcon } } },
+
 
     MuiFilledInput: {
       defaultProps: { disableUnderline: true },
@@ -976,27 +1098,40 @@ export const darkTheme = createTheme({
     MuiTextField: {
       styleOverrides: {
         root: {
-          '& .MuiOutlinedInput-root': {
+          '& .MuiOutlinedInput-root, & .MuiPickersOutlinedInput-root': {
             borderRadius: 16,
             background: 'rgba(255,255,255,0.07)',
             backdropFilter: 'blur(16px) saturate(130%)',
             WebkitBackdropFilter: 'blur(16px) saturate(130%)',
             transition: 'box-shadow 0.2s ease, background 0.2s ease',
-            '& fieldset': {
+            '& fieldset, & .MuiOutlinedInput-notchedOutline, & .MuiPickersOutlinedInput-notchedOutline': {
               borderColor: 'rgba(255, 255, 255, 0.14)',
               borderWidth: 1,
               transition: 'border-color 0.2s ease',
             },
-            '&:hover fieldset': {
+            '&:hover fieldset, &:hover .MuiOutlinedInput-notchedOutline, &:hover .MuiPickersOutlinedInput-notchedOutline': {
               borderColor: 'rgba(255, 255, 255, 0.26)',
             },
             '&.Mui-focused': {
               background: 'rgba(255,255,255,0.10)',
               boxShadow: '0 0 0 3px rgba(10, 132, 255, 0.22)',
             },
-            '&.Mui-focused fieldset': {
+            '&.Mui-focused fieldset, &.Mui-focused .MuiOutlinedInput-notchedOutline, &.Mui-focused .MuiPickersOutlinedInput-notchedOutline': {
               borderColor: '#0A84FF',
               borderWidth: 1.5,
+            },
+            '&.Mui-focused .MuiIconButton-root, &.Mui-focused .MuiSvgIcon-root': {
+              color: '#0A84FF',
+            },
+            '&.Mui-disabled': {
+              background: 'rgba(255, 255, 255, 0.03)',
+              color: 'rgba(235, 235, 245, 0.3)',
+              '& fieldset, & .MuiOutlinedInput-notchedOutline, & .MuiPickersOutlinedInput-notchedOutline': {
+                borderColor: 'rgba(255, 255, 255, 0.08)',
+              },
+              '& input, & span, & .MuiPickersSectionList-sectionContent': {
+                color: 'rgba(235, 235, 245, 0.3)',
+              },
             },
             '& input': {
               color: '#F2F2F7',
@@ -1023,16 +1158,29 @@ export const darkTheme = createTheme({
           backdropFilter: 'blur(16px) saturate(130%)',
           WebkitBackdropFilter: 'blur(16px) saturate(130%)',
           transition: 'box-shadow 0.2s ease, background 0.2s ease',
-          '&:hover .MuiOutlinedInput-notchedOutline': {
+          '&:hover .MuiOutlinedInput-notchedOutline, &:hover .MuiPickersOutlinedInput-notchedOutline, &:hover fieldset': {
             borderColor: 'rgba(255, 255, 255, 0.26)',
           },
           '&.Mui-focused': {
             background: 'rgba(255,255,255,0.10)',
             boxShadow: '0 0 0 3px rgba(10, 132, 255, 0.22)',
           },
-          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline, &.Mui-focused .MuiPickersOutlinedInput-notchedOutline, &.Mui-focused fieldset': {
             borderColor: '#0A84FF',
             borderWidth: 1.5,
+          },
+          '&.Mui-focused .MuiIconButton-root, &.Mui-focused .MuiSvgIcon-root': {
+            color: '#0A84FF',
+          },
+          '&.Mui-disabled': {
+            background: 'rgba(255, 255, 255, 0.03)',
+            color: 'rgba(235, 235, 245, 0.3)',
+            '& .MuiOutlinedInput-notchedOutline, & .MuiPickersOutlinedInput-notchedOutline, & fieldset': {
+              borderColor: 'rgba(255, 255, 255, 0.08)',
+            },
+            '& input, & span, & .MuiPickersSectionList-sectionContent': {
+              color: 'rgba(235, 235, 245, 0.3)',
+            },
           },
         },
         notchedOutline: {
@@ -1041,6 +1189,112 @@ export const darkTheme = createTheme({
         },
       },
     },
+
+    MuiPickersTextField: {
+      styleOverrides: {
+        root: {
+          '& .MuiOutlinedInput-root, & .MuiPickersOutlinedInput-root': {
+            borderRadius: 16,
+            background: 'rgba(255,255,255,0.07)',
+            backdropFilter: 'blur(16px) saturate(130%)',
+            WebkitBackdropFilter: 'blur(16px) saturate(130%)',
+            transition: 'box-shadow 0.2s ease, background 0.2s ease',
+            '& fieldset, & .MuiOutlinedInput-notchedOutline, & .MuiPickersOutlinedInput-notchedOutline': {
+              borderColor: 'rgba(255, 255, 255, 0.14)',
+              borderWidth: 1,
+              transition: 'border-color 0.2s ease',
+            },
+            '&:hover fieldset, &:hover .MuiOutlinedInput-notchedOutline, &:hover .MuiPickersOutlinedInput-notchedOutline': {
+              borderColor: 'rgba(255, 255, 255, 0.26)',
+            },
+            '&.Mui-focused': {
+              background: 'rgba(255,255,255,0.10)',
+              boxShadow: '0 0 0 3px rgba(10, 132, 255, 0.22)',
+            },
+            '&.Mui-focused fieldset, &.Mui-focused .MuiOutlinedInput-notchedOutline, &.Mui-focused .MuiPickersOutlinedInput-notchedOutline': {
+              borderColor: '#0A84FF',
+              borderWidth: 1.5,
+            },
+            '&.Mui-focused .MuiIconButton-root, &.Mui-focused .MuiSvgIcon-root': {
+              color: '#0A84FF',
+            },
+            '&.Mui-disabled': {
+              background: 'rgba(255, 255, 255, 0.03)',
+              color: 'rgba(235, 235, 245, 0.3)',
+              '& fieldset, & .MuiOutlinedInput-notchedOutline, & .MuiPickersOutlinedInput-notchedOutline': {
+                borderColor: 'rgba(255, 255, 255, 0.08)',
+              },
+              '& input, & span, & .MuiPickersSectionList-sectionContent': {
+                color: 'rgba(235, 235, 245, 0.3)',
+              },
+            },
+            '& input': {
+              color: '#F2F2F7',
+            },
+            '& input::placeholder': {
+              color: 'rgba(235,235,245,0.4)',
+            },
+          },
+          '& .MuiInputLabel-root': {
+            color: 'rgba(235,235,245,0.55)',
+          },
+          '& .MuiInputLabel-root.Mui-focused': {
+            color: '#0A84FF',
+          },
+        },
+      },
+    },
+
+    MuiPickersOutlinedInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: 16,
+          background: 'rgba(255,255,255,0.07)',
+          backdropFilter: 'blur(16px) saturate(130%)',
+          WebkitBackdropFilter: 'blur(16px) saturate(130%)',
+          transition: 'box-shadow 0.2s ease, background 0.2s ease',
+          '&:hover .MuiOutlinedInput-notchedOutline, &:hover .MuiPickersOutlinedInput-notchedOutline, &:hover fieldset': {
+            borderColor: 'rgba(255, 255, 255, 0.26)',
+          },
+          '&.Mui-focused': {
+            background: 'rgba(255,255,255,0.10)',
+            boxShadow: '0 0 0 3px rgba(10, 132, 255, 0.22)',
+          },
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline, &.Mui-focused .MuiPickersOutlinedInput-notchedOutline, &.Mui-focused fieldset': {
+            borderColor: '#0A84FF',
+            borderWidth: 1.5,
+          },
+          '&.Mui-focused .MuiIconButton-root, &.Mui-focused .MuiSvgIcon-root': {
+            color: '#0A84FF',
+          },
+          '&.Mui-disabled': {
+            background: 'rgba(255, 255, 255, 0.03)',
+            color: 'rgba(235, 235, 245, 0.3)',
+            '& .MuiOutlinedInput-notchedOutline, & .MuiPickersOutlinedInput-notchedOutline, & fieldset': {
+              borderColor: 'rgba(255, 255, 255, 0.08)',
+            },
+            '& input, & span, & .MuiPickersSectionList-sectionContent': {
+              color: 'rgba(235, 235, 245, 0.3)',
+            },
+          },
+        },
+        notchedOutline: {
+          borderColor: 'rgba(255, 255, 255, 0.14)',
+          transition: 'border-color 0.2s ease',
+        },
+      },
+    },
+
+    MuiDatePicker: { defaultProps: { slots: { openPickerIcon: ModernCalendarIcon } } },
+    MuiDesktopDatePicker: { defaultProps: { slots: { openPickerIcon: ModernCalendarIcon } } },
+    MuiMobileDatePicker: { defaultProps: { slots: { openPickerIcon: ModernCalendarIcon } } },
+    MuiDateTimePicker: { defaultProps: { slots: { openPickerIcon: ModernCalendarIcon } } },
+    MuiDesktopDateTimePicker: { defaultProps: { slots: { openPickerIcon: ModernCalendarIcon } } },
+    MuiMobileDateTimePicker: { defaultProps: { slots: { openPickerIcon: ModernCalendarIcon } } },
+    MuiTimePicker: { defaultProps: { slots: { openPickerIcon: ModernClockIcon } } },
+    MuiDesktopTimePicker: { defaultProps: { slots: { openPickerIcon: ModernClockIcon } } },
+    MuiMobileTimePicker: { defaultProps: { slots: { openPickerIcon: ModernClockIcon } } },
+
 
     MuiFilledInput: {
       defaultProps: { disableUnderline: true },

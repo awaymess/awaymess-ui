@@ -16,7 +16,8 @@
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "ignoreDeprecations": "6.0"
   },
   "include": ["src"]
 }

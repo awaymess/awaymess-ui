@@ -83,6 +83,15 @@ export const ExampleForm: React.FC = () => {
             />
           </Box>
 
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Typography variant="body2" color="text.secondary">Compact Mode (Small Switch)</Typography>
+            <Switch
+              defaultChecked
+              size="small"
+              color="primary"
+            />
+          </Box>
+
           <FormControlLabel
             control={
               <Checkbox

@@ -772,6 +772,10 @@ const themeOptions: ThemeOptions = {
           width: 50,
           height: 28,
           padding: 0,
+          '&.MuiSwitch-sizeSmall': {
+            width: 36,
+            height: 20,
+          },
         },
         switchBase: {
           padding: 3,
@@ -785,18 +789,31 @@ const themeOptions: ThemeOptions = {
               boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.15)',
             },
           },
+          '.MuiSwitch-root.MuiSwitch-sizeSmall &': {
+            padding: 2,
+            '&.Mui-checked': {
+              transform: 'translateX(16px)',
+            },
+          },
         },
         thumb: {
           width: 22,
           height: 22,
           boxShadow:
             '0 2px 6px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.9)',
+          '.MuiSwitch-root.MuiSwitch-sizeSmall &': {
+            width: 16,
+            height: 16,
+          },
         },
         track: {
           borderRadius: 14,
           background: 'rgba(120, 120, 128, 0.32)',
           opacity: 1,
           transition: 'background 0.25s ease, opacity 0.25s ease',
+          '.MuiSwitch-root.MuiSwitch-sizeSmall &': {
+            borderRadius: 10,
+          },
         },
       },
     },
@@ -1444,6 +1461,10 @@ export const darkTheme = createTheme({
           width: 50,
           height: 28,
           padding: 0,
+          '&.MuiSwitch-sizeSmall': {
+            width: 36,
+            height: 20,
+          },
         },
         switchBase: {
           padding: 3,
@@ -1456,18 +1477,31 @@ export const darkTheme = createTheme({
               opacity: 1,
             },
           },
+          '.MuiSwitch-root.MuiSwitch-sizeSmall &': {
+            padding: 2,
+            '&.Mui-checked': {
+              transform: 'translateX(16px)',
+            },
+          },
         },
         thumb: {
           width: 22,
           height: 22,
           boxShadow:
             '0 2px 6px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2)',
+          '.MuiSwitch-root.MuiSwitch-sizeSmall &': {
+            width: 16,
+            height: 16,
+          },
         },
         track: {
           borderRadius: 14,
           background: 'rgba(255, 255, 255, 0.18)',
           opacity: 1,
           transition: 'background 0.25s ease, opacity 0.25s ease',
+          '.MuiSwitch-root.MuiSwitch-sizeSmall &': {
+            borderRadius: 10,
+          },
         },
       },
     },

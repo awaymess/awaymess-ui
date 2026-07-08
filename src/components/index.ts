@@ -109,6 +109,24 @@ export type {
   TypographyProps,
 } from '@mui/material';
 
-// Re-export pickers if needed
-// export { DatePicker } from '@mui/x-date-pickers';
+// Re-export pickers and adapters
+export {
+  DatePicker,
+  DesktopDatePicker,
+  MobileDatePicker,
+  DateTimePicker,
+  DesktopDateTimePicker,
+  MobileDateTimePicker,
+  TimePicker,
+  DesktopTimePicker,
+  MobileTimePicker,
+  LocalizationProvider,
+} from '@mui/x-date-pickers';
+export type {
+  DatePickerProps,
+  DateTimePickerProps,
+  TimePickerProps,
+  LocalizationProviderProps,
+} from '@mui/x-date-pickers';
+export { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 export * from './ModernDateIcons';
